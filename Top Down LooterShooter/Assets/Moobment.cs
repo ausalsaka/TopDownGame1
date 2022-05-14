@@ -10,7 +10,8 @@ public class Moobment : MonoBehaviour
     public float stepInterval;
     private float elapsedWalkTime;
     //Movement tools
-    private bool isRunning;
+    public Joystick joystick;
+    public Joystick aimstick;
     public float moveSpeed = 5f;
     public SpriteRenderer Renderer;
     public Animator animator;
@@ -71,17 +72,18 @@ public class Moobment : MonoBehaviour
 
     void playerFaceMouse()
     {
-
-        Vector3 mousePos = Input.mousePosition;
-        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-        if (transform.position.x < mousePos.x)
+        if (aimstick.Direction != Vector2.zero && aimstick.Horizontal > 0)
         {
             Renderer.flipX = false;
 
         }
-        else
+        else if (joystick.Direction != Vector2.zero && joystick.Horizontal > 0)
+        {
+            Renderer.flipX = false;
+        }else
         {
             Renderer.flipX = true;
+
         }
 
     }
@@ -195,25 +197,43 @@ public class Moobment : MonoBehaviour
     void gunFaceMouse()
     {
         //Getting mouseposition
-            Vector3 mousePosition = Input.mousePosition;
-            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+            //Vector3 mousePosition = Input.mousePosition;
+            //mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-        Vector2 direction = new Vector2(
-            mousePosition.x - transform.position.x,
-            mousePosition.y - transform.position.y
-            );
+        //Vector2 direction = new Vector2(
+            //mousePosition.x - transform.position.x,
+            //mousePosition.y - transform.position.y
+            //);
+            if (aimstick.Direction != Vector2.zero)
+        {
+            transform.GetChild(0).gameObject.transform.up = aimstick.Direction;
+        }
+        else
+        {
+            transform.GetChild(0).gameObject.transform.up = joystick.Direction;
+        }
 
-
-        transform.GetChild(0).gameObject.transform.up = direction;
+        
         //transform.up = direction;
 
     }
 
     void PlayerMovement()
     {
+        float moveX;
+        float moveY;
         //Movement input
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
+        if (joystick == null)
+        {
+            moveX = Input.GetAxisRaw("Horizontal");
+            moveY = Input.GetAxisRaw("Vertical");
+        }
+        else
+        {
+            moveX = joystick.Horizontal;
+            moveY = joystick.Vertical;
+        }
+
         moveDirection = new Vector2(moveX, moveY).normalized;
         //Check If Sprinting
         if (moveDirection != Vector2.zero && Input.GetKey(KeyCode.LeftShift))

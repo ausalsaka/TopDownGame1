@@ -10,6 +10,9 @@ public class Weapon : MonoBehaviour
     public GameObject Player;
     [HideInInspector]
     public bool isEquipped = false;
+    [SerializeField]
+    private Joystick aimstick;
+    public Joystick joystick;
     public AudioSource Sounds;
     public AudioClip reloadClip;
     public AudioClip shootClip;
@@ -62,23 +65,41 @@ public class Weapon : MonoBehaviour
     
     void weaponOrientationCheck()
     {
-        Vector3 mousePosition = Input.mousePosition;
-        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        if (Player.transform.position.x < mousePosition.x && isEquipped)
+        //Vector3 mousePosition = aimstick.Direction;
+        //mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        //if (aimstick.Horizontal > 0 && isEquipped)
+        //{
+        //    Renderer.flipX = false;
+        //    bulletExit = bulletExitR;
+        //    
+        //}else if (aimstick.Horizontal < 0 && isEquipped)
+        //{
+        //    Renderer.flipX = true;
+        //    bulletExit = bulletExitL;
+        //}
+        if (aimstick.Direction != Vector2.zero && aimstick.Horizontal > 0 && isEquipped)
         {
             Renderer.flipX = false;
             bulletExit = bulletExitR;
-            
-        }else if (isEquipped)
+
+        }
+        else if (joystick.Direction != Vector2.zero && joystick.Horizontal > 0 && isEquipped)
+        {
+            Renderer.flipX = false;
+            bulletExit = bulletExitR;
+        }
+        else if (isEquipped)
         {
             Renderer.flipX = true;
             bulletExit = bulletExitL;
+
         }
+
     }
 
     void fireInputDetection()
     {
-        if (Input.GetButton("Fire1") && isEquipped && reloading != true)
+        if ((aimstick.Vertical != 0 || aimstick.Horizontal != 0) && isEquipped && reloading != true )
         {
             if (Time.time - lastFired > 1 / fireRate && bulletCount != 0)
             {
