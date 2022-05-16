@@ -46,7 +46,6 @@ public class Player : MonoBehaviour
         {
             if (SecondaryIcon != null) { 
                 SecondaryIcon.sprite = PrimaryIcon.sprite;
-                Debug.Log("ee");
             }
             
             Weapons[weaponCounter] = item;
@@ -56,6 +55,7 @@ public class Player : MonoBehaviour
             item.transform.localRotation = Quaternion.identity;
             unequip();
             Weapons[weaponCounter].GetComponent<Weapon>().isEquipped = true;
+            transform.GetComponent<Moobment>().gun = item;
 
             weaponCounter++;
             Weapons[weaponCounter-1].GetComponent<Weapon>().Renderer.sprite = Weapons[weaponCounter-1].GetComponent<Weapon>().hand;
@@ -97,15 +97,18 @@ public class Player : MonoBehaviour
                 StartCoroutine(enableCollider(Weapons[i]));
                 Weapons[i] = null;
                 PrimaryIcon.sprite = null;
+                transform.GetComponent<Moobment>().gun = null;
                 MagSize.text = "#";
                 AmmoCount.text = "#";
                 if (Weapons[1] != null && Weapons[0] == null)
                 {
                     Weapons[0] = Weapons[1];
                     Weapons[1] = null;
+                    transform.GetComponent<Moobment>().gun = Weapons[0];
                     PrimaryIcon.sprite = Weapons[0].GetComponent<Weapon>().unequipped;
                     MagSize.text = Weapons[0].GetComponent<Weapon>().maxMagSize.ToString();
                     AmmoCount.text = Weapons[0].GetComponent<Weapon>().bulletCount.ToString();
+                    SecondaryIcon.sprite = PrimaryIcon.sprite;
                     SecondaryIcon.sprite = null;
                 }
             }

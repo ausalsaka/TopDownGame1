@@ -20,7 +20,8 @@ public class Weapon : MonoBehaviour
     private float chancer2;
     private float posneg;
     private float posneg2;
-    private GameObject bulletExit;
+    [HideInInspector]
+    public GameObject bulletExit;
     public GameObject bulletExitL;
     public GameObject bulletExitR;
     public GameObject bulletPrefab;                 //Retrieves Bullet Sprite
@@ -58,7 +59,7 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
-        weaponOrientationCheck();
+        //weaponOrientationCheck();
         fireInputDetection();
         checkForReload();
     }
@@ -77,7 +78,7 @@ public class Weapon : MonoBehaviour
         //    Renderer.flipX = true;
         //    bulletExit = bulletExitL;
         //}
-        if (aimstick.Direction != Vector2.zero && aimstick.Horizontal > 0 && isEquipped)
+        if (aimstick.Horizontal > 0 && isEquipped)
         {
             Renderer.flipX = false;
             bulletExit = bulletExitR;
@@ -96,25 +97,44 @@ public class Weapon : MonoBehaviour
         }
 
     }
-
     void fireInputDetection()
     {
-        if ((aimstick.Vertical != 0 || aimstick.Horizontal != 0) && isEquipped && reloading != true )
+
+
+        if (Input.touchCount>0 && isEquipped && reloading != true )
         {
-            if (Time.time - lastFired > 1 / fireRate && bulletCount != 0)
+            int i = 0;
+            while ( i < Input.touchCount)
             {
-                lastFired = Time.time;
-                Instantiate(bulletPrefab, bulletExit.transform.position, bulletExit.transform.rotation);
-                StartCoroutine(muzzleFlash());
-                Sounds.PlayOneShot(shootClip);
-                CinemachineShake.Instance.ShakeCamera(shakeScale, .2f);
-                bulletCount--;
-                AmmoCount.text = bulletCount.ToString();
+                var touch = Input.GetTouch(i);
+                
+
+                if (touch.phase == TouchPhase.Began && touch.position.x < 400 && touch.position.y < 300)
+                {
+                    touch.fingerId = 100;
+                }
+
+                if ((touch.fingerId != 100) && (Time.time - lastFired > 1 / fireRate) && (bulletCount != 0))
+                {
+                    lastFired = Time.time;
+                    Instantiate(bulletPrefab, bulletExit.transform.position, bulletExit.transform.rotation);
+                    StartCoroutine(muzzleFlash());
+                    Sounds.PlayOneShot(shootClip);
+                    CinemachineShake.Instance.ShakeCamera(shakeScale, .2f);
+                    bulletCount--;
+                    AmmoCount.text = bulletCount.ToString();
+                }
+                else if (bulletCount == 0)
+                {
+                    StartCoroutine(reload());
+                }
+                   
+               
+
+                i++;
             }
-            else if (bulletCount == 0)
-            {
-                StartCoroutine(reload());
-            }
+
+
         }
     }
 

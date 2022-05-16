@@ -12,6 +12,7 @@ public class Moobment : MonoBehaviour
     //Movement tools
     public Joystick joystick;
     public Joystick aimstick;
+    public GameObject gun;
     public float moveSpeed = 5f;
     public SpriteRenderer Renderer;
     public Animator animator;
@@ -47,11 +48,11 @@ public class Moobment : MonoBehaviour
         Dash();
         PlayerMovement();
         gunFaceMouse();
-        playerFaceMouse();
+        //playerFaceMouse();
         walkTimer();
 
         //Changing the players position
-        if (direction == 0)
+        //if (direction == 0)
         {
             rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
         }
@@ -196,27 +197,101 @@ public class Moobment : MonoBehaviour
 
     void gunFaceMouse()
     {
-        //Getting mouseposition
-            //Vector3 mousePosition = Input.mousePosition;
-            //mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        //Getting touch position
 
-        //Vector2 direction = new Vector2(
-            //mousePosition.x - transform.position.x,
-            //mousePosition.y - transform.position.y
-            //);
-            if (aimstick.Direction != Vector2.zero)
+        if (Input.touchCount > 0)
         {
-            transform.GetChild(0).gameObject.transform.up = aimstick.Direction;
+            int i = 0;
+            while (i < Input.touchCount && gun != null)
+            {
+                Touch touch = Input.GetTouch(i);
+                Vector2 touchDir = new Vector2(
+                    touch.position.x - Camera.main.WorldToScreenPoint(transform.position).x,
+                    touch.position.y - Camera.main.WorldToScreenPoint(transform.position).y
+                    );
+
+                int FID = touch.fingerId;
+
+                if(touch.phase == TouchPhase.Began)
+                {
+                    var startPos = touch.position;
+                    if (startPos.x < 400 && startPos.y < 300) { FID = 100; }
+                }
+                   
+
+                void TouchControlsDirection()
+                {
+                    transform.GetChild(0).transform.up = touchDir;
+                    if(touchDir.x > 0)
+                    {
+                        gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitR;
+                        gun.GetComponent<SpriteRenderer>().flipX = false;
+                        Renderer.flipX = false;
+                    }
+                    else
+                    {
+                        gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitL;
+                        gun.GetComponent<SpriteRenderer>().flipX = true;
+                        Renderer.flipX = true;
+                    }
+                }
+
+                if (Input.touchCount == 1)
+                {
+                    if ((FID == 100))
+                    {
+                        JoystickControlsDirection();
+                    }
+                    else
+                    {
+                        TouchControlsDirection();
+                    }
+                }else if (Input.touchCount == 2)
+                {
+                    if((FID != 100))
+                    {
+                        TouchControlsDirection();
+                    }
+                }
+
+
+                //transform.GetChild(0).transform.up = touchDir;
+                //if (touch.fingerId != 100 && touchDir.x > 0 && gun != null)
+                //{
+                //    gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitR;
+                //    gun.GetComponent<SpriteRenderer>().flipX = false;
+                //    Renderer.flipX = false;
+                //}
+                //else if (touch.fingerId != 100 && touchDir.x < 0 && gun != null)
+                //{
+                //    gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitL;
+                //    gun.GetComponent<SpriteRenderer>().flipX = true;
+                //    Renderer.flipX = true;
+                //}
+                i++;
+            }            
+        }        
+    }
+
+    void JoystickControlsDirection()
+    {
+        transform.GetChild(0).transform.up = joystick.Direction;
+        if(joystick.Direction.x > 0)
+        {
+            gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitR;
+            gun.GetComponent<SpriteRenderer>().flipX = false;
+            Renderer.flipX = false;
         }
         else
         {
-            transform.GetChild(0).gameObject.transform.up = joystick.Direction;
+            gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitL;
+            gun.GetComponent<SpriteRenderer>().flipX = true;
+            Renderer.flipX = true;
         }
-
-        
-        //transform.up = direction;
-
     }
+
+
+
 
     void PlayerMovement()
     {
@@ -244,12 +319,14 @@ public class Moobment : MonoBehaviour
                 moveSpeed = 8f;
                 stepInterval = .3f;
                 animator.SetBool("isRunning", true);
+                gunFaceMouse();
             }
             else
             {
                 moveSpeed = 5f;
                 stepInterval = .5f;
                 animator.SetBool("isRunning", false);
+                gunFaceMouse();
             }
         }
         if (Input.GetKeyUp(KeyCode.LeftShift)) 
