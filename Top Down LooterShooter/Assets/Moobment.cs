@@ -201,6 +201,11 @@ public class Moobment : MonoBehaviour
 
         if (Input.touchCount > 0)
         {
+
+
+
+
+
             int i = 0;
             while (i < Input.touchCount && gun != null)
             {
