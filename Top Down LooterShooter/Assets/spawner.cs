@@ -60,7 +60,7 @@ public class spawner : MonoBehaviour
         Debug.Log("newwave");
         stopSpawning = false;
         newWaveStarted = false;
-        //
+        
     }
 
     void spawnEnemy()

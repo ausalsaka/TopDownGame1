@@ -12,15 +12,15 @@ public class Enemy : MonoBehaviour
     public float dropRadius = 0.1f;
     private bool canDamage = true;
 
+
+
     public void TakeDamage (float damage)
     {
         health -= damage;
-
         if (health <= 0)
         {
             Die();
         }
-
     }
 
     IEnumerator canDamageReset()
@@ -31,16 +31,13 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D col)
     {
-        
         if (col.name == "Player" && canDamage)
         {
-
-            Player.health -= 20;
-            Player.Health.value -= 20;
-            Debug.Log(Player.health);
+            col.GetComponent<Player>().health -= 20;
+            col.GetComponent<Player>().Health.value -= 20;
+            // player.GetComponent<Player>().Health.value -= 20;
             canDamage = false;
             StartCoroutine(canDamageReset());
-
         }
     }
 

@@ -6,14 +6,15 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     private float Xp;
-    public static int weaponCounter = 0;
-    public static GameObject[] Weapons = new GameObject[2];
-    public static float health = 100;
+    public int weaponCounter = 0;
+    public GameObject[] Weapons = new GameObject[2];
+    public float health = 100;
     public GameObject youDied;
     public GameObject rbtn;
-    private bool dead = false;
-    public Slider healthSlider;
-    public static Slider Health;
+    [HideInInspector]
+    public bool dead = false;
+    //public Slider healthSlider;
+    public Slider Health;
     public Image PrimaryIcon;
     public Image SecondaryIcon;
     public Text MagSize;
@@ -23,13 +24,13 @@ public class Player : MonoBehaviour
 
     public void Awake()
     {
-        Health = healthSlider;
+        //Health = healthSlider;
         Health.maxValue = health;
         Health.value = health;
     }
     public void pickUpXp(float value)
     {
-        Xp = Xp + value;
+        Xp += value;
         if (gameObject.GetComponent<Moobment>().currentStamina < gameObject.GetComponent<Moobment>().maxStamina)
         {
             gameObject.GetComponent<Moobment>().currentStamina += value;     //collected experience regenerates stamina
@@ -133,7 +134,7 @@ public class Player : MonoBehaviour
         {
             Time.timeScale = 0;
             //Instantiate(youDied, transform.position, Quaternion.identity);
-            Instantiate(rbtn, Vector2.zero, Quaternion.identity);
+            rbtn.SetActive(true);
             dead = true;
             
         }

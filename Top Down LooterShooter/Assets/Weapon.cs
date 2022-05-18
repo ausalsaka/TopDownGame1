@@ -70,7 +70,7 @@ public class Weapon : MonoBehaviour
     void fireInputDetection()
     {
 
-        if (Input.touchCount>0 && isEquipped )
+        if (Input.touchCount>0 && isEquipped && Player.GetComponent<Player>().dead == false)
         {
             int i = 0;
             while ( i < Input.touchCount)
@@ -110,17 +110,10 @@ public class Weapon : MonoBehaviour
         flashL.SetActive(false);
     }
 
-    //void checkForReload()
-    //{
-        
-     //   if (Input.GetKeyDown("r") && isEquipped && reloading == false && bulletCount != maxMagSize)
-     //   {
-    //        StartCoroutine(reload());
-    //    }
-    //}
+
     void StartReloading()
     {
-        StartCoroutine(reload());
+        if (isEquipped) StartCoroutine(reload());
     }
 
 
