@@ -30,9 +30,9 @@ public class Weapon : MonoBehaviour
     public float fireRate = 2f;                     //Sets firerate
     public int maxMagSize = 10;
     public float reloadTime = 2;
+    
     [HideInInspector]
     public int bulletCount;
-    private float lastFired;
     public static bool reloading = false;
     public GameObject Magazine;
     public SpriteRenderer Renderer;
@@ -42,7 +42,9 @@ public class Weapon : MonoBehaviour
     //public Image icon;
     //public Text MagSize;
     public Text AmmoCount;
-
+    //touch screen tools
+    public Image reloadButton;
+    
 
 
     private void Awake()
@@ -53,88 +55,42 @@ public class Weapon : MonoBehaviour
 
     private void Start()
     {
+        reloadButton.GetComponent<Button>().onClick.AddListener(StartReloading);
         bulletCount = maxMagSize;
         Player = GameObject.Find("Player");
     }
 
     void Update()
     {
-        //weaponOrientationCheck();
         fireInputDetection();
-        checkForReload();
+        //checkForReload();
     }
     
-    void weaponOrientationCheck()
-    {
-        //Vector3 mousePosition = aimstick.Direction;
-        //mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        //if (aimstick.Horizontal > 0 && isEquipped)
-        //{
-        //    Renderer.flipX = false;
-        //    bulletExit = bulletExitR;
-        //    
-        //}else if (aimstick.Horizontal < 0 && isEquipped)
-        //{
-        //    Renderer.flipX = true;
-        //    bulletExit = bulletExitL;
-        //}
-        if (aimstick.Horizontal > 0 && isEquipped)
-        {
-            Renderer.flipX = false;
-            bulletExit = bulletExitR;
-
-        }
-        else if (joystick.Direction != Vector2.zero && joystick.Horizontal > 0 && isEquipped)
-        {
-            Renderer.flipX = false;
-            bulletExit = bulletExitR;
-        }
-        else if (isEquipped)
-        {
-            Renderer.flipX = true;
-            bulletExit = bulletExitL;
-
-        }
-
-    }
+   
     void fireInputDetection()
     {
 
-
-        if (Input.touchCount>0 && isEquipped && reloading != true )
+        if (Input.touchCount>0 && isEquipped )
         {
             int i = 0;
             while ( i < Input.touchCount)
             {
-                var touch = Input.GetTouch(i);
-                
-
-                if (touch.phase == TouchPhase.Began && touch.position.x < 400 && touch.position.y < 300)
+            Touch t = Input.GetTouch(i);
+                if (t.phase == TouchPhase.Began && bulletCount != 0 && ((t.position.x > 400 && t.position.y < 300) || (t.position.y > 300 && t.position.x < 400) || (t.position.y > 300 && t.position.x > 400)))
                 {
-                    touch.fingerId = 100;
-                }
-
-                if ((touch.fingerId != 100) && (Time.time - lastFired > 1 / fireRate) && (bulletCount != 0))
+                    InvokeRepeating("shooting", 0f, 60/fireRate);
+                }else if (t.phase == TouchPhase.Ended && ((t.position.x > 400 && t.position.y < 300) || (t.position.y > 300 && t.position.x < 400) || (t.position.y > 300 && t.position.x > 400)))
                 {
-                    lastFired = Time.time;
-                    Instantiate(bulletPrefab, bulletExit.transform.position, bulletExit.transform.rotation);
-                    StartCoroutine(muzzleFlash());
-                    Sounds.PlayOneShot(shootClip);
-                    CinemachineShake.Instance.ShakeCamera(shakeScale, .2f);
-                    bulletCount--;
-                    AmmoCount.text = bulletCount.ToString();
+                    CancelInvoke("shooting");
                 }
                 else if (bulletCount == 0)
                 {
+                    CancelInvoke("shooting");
                     StartCoroutine(reload());
                 }
                    
-               
-
                 i++;
             }
-
-
         }
     }
 
@@ -154,17 +110,36 @@ public class Weapon : MonoBehaviour
         flashL.SetActive(false);
     }
 
-    void checkForReload()
-    {
+    //void checkForReload()
+    //{
         
-        if (Input.GetKeyDown("r") && isEquipped && reloading == false && bulletCount != maxMagSize)
-        {
-            StartCoroutine(reload());
-        }
+     //   if (Input.GetKeyDown("r") && isEquipped && reloading == false && bulletCount != maxMagSize)
+     //   {
+    //        StartCoroutine(reload());
+    //    }
+    //}
+    void StartReloading()
+    {
+        StartCoroutine(reload());
     }
 
 
-
+    void shooting()
+    {
+        if(bulletCount != 0 && reloading != true)
+        {
+            Instantiate(bulletPrefab, bulletExit.transform.position, bulletExit.transform.rotation);
+            StartCoroutine(muzzleFlash());
+            Sounds.PlayOneShot(shootClip);
+            CinemachineShake.Instance.ShakeCamera(shakeScale, .2f);
+            bulletCount--;
+            AmmoCount.text = bulletCount.ToString();
+        }else if(bulletCount == 0)
+        {
+            CancelInvoke("shooting");
+            StartCoroutine(reload());
+        }
+    }
 
     IEnumerator dropMag()
     {
@@ -192,15 +167,17 @@ public class Weapon : MonoBehaviour
 
     IEnumerator reload()
     {
-        reloading = true;
-        Debug.Log("reloading");
-        Sounds.PlayOneShot(reloadClip);
-        StartCoroutine(dropMag());
-        yield return new WaitForSeconds(reloadTime);
-        bulletCount = maxMagSize;
-        Debug.Log(bulletCount + "/" + maxMagSize);
-        reloading = false;
-        AmmoCount.text = bulletCount.ToString();
+        if (reloading == false)
+        {
+            reloading = true;
+            Sounds.PlayOneShot(reloadClip);
+            StartCoroutine(dropMag());
+            yield return new WaitForSeconds(reloadTime);
+            bulletCount = maxMagSize;
+            reloading = false;
+            AmmoCount.text = bulletCount.ToString();
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D col)

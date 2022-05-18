@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public static GameObject[] Weapons = new GameObject[2];
     public static float health = 100;
     public GameObject youDied;
+    public GameObject rbtn;
     private bool dead = false;
     public Slider healthSlider;
     public static Slider Health;
@@ -131,8 +132,10 @@ public class Player : MonoBehaviour
         if(health <= 0 && dead == false)
         {
             Time.timeScale = 0;
-            Instantiate(youDied, transform.position, Quaternion.identity);
+            //Instantiate(youDied, transform.position, Quaternion.identity);
+            Instantiate(rbtn, Vector2.zero, Quaternion.identity);
             dead = true;
+            
         }
         //Weapon Dropping
         if (Input.GetKeyDown("z"))
