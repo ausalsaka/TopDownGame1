@@ -44,6 +44,7 @@ public class Weapon : MonoBehaviour
     public Text AmmoCount;
     //touch screen tools
     public Image reloadButton;
+    private bool touchingInventory = false;
     
 
 
@@ -55,18 +56,28 @@ public class Weapon : MonoBehaviour
 
     private void Start()
     {
+        //GameObject.Find("Inventory").GetComponent<Button>().onClick.AddListener(blockTouch);
         reloadButton.GetComponent<Button>().onClick.AddListener(StartReloading);
         bulletCount = maxMagSize;
         Player = GameObject.Find("Player");
     }
-
+    
     void Update()
     {
         fireInputDetection();
         //checkForReload();
     }
-    
-   
+
+
+    //void cancelinvoke(string invoke)
+    //{
+    //    CancelInvoke(invoke);
+    //}
+
+   //void blockTouch()
+    //{
+    //    touchingInventory = true;
+    //}
     void fireInputDetection()
     {
 
@@ -76,10 +87,10 @@ public class Weapon : MonoBehaviour
             while ( i < Input.touchCount)
             {
             Touch t = Input.GetTouch(i);
-                if (t.phase == TouchPhase.Began && bulletCount != 0 && ((t.position.x > 400 && t.position.y < 300) || (t.position.y > 300 && t.position.x < 400) || (t.position.y > 300 && t.position.x > 400)))
+                if (t.phase == TouchPhase.Began && bulletCount != 0 && ((t.position.x > 450 && t.position.y <400) || (t.position.y > 400 && t.position.y < Screen.height - Screen.height/5) || (t.position.x < Screen.width - Screen.width/5 && t.position.y > Screen.height - Screen.height / 5))) 
                 {
                     InvokeRepeating("shooting", 0f, 60/fireRate);
-                }else if (t.phase == TouchPhase.Ended && ((t.position.x > 400 && t.position.y < 300) || (t.position.y > 300 && t.position.x < 400) || (t.position.y > 300 && t.position.x > 400)))
+                }else if (t.phase == TouchPhase.Ended && ((t.position.x > 450 && t.position.y < 400) || (t.position.y > 400 && t.position.y < Screen.height - Screen.height / 5) || (t.position.x < Screen.width - Screen.width / 5 && t.position.y > Screen.height - Screen.height / 5)))              
                 {
                     CancelInvoke("shooting");
                 }
@@ -88,7 +99,6 @@ public class Weapon : MonoBehaviour
                     CancelInvoke("shooting");
                     StartCoroutine(reload());
                 }
-                   
                 i++;
             }
         }

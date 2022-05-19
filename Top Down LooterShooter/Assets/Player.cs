@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     private float Xp;
     public int weaponCounter = 0;
     public GameObject[] Weapons = new GameObject[2];
+    public int activeWep = 69;
     public float health = 100;
     public GameObject youDied;
     public GameObject rbtn;
@@ -19,14 +20,16 @@ public class Player : MonoBehaviour
     public Image SecondaryIcon;
     public Text MagSize;
     public Text AmmoCount;
+    //touch controls
+
 
 
 
     public void Awake()
     {
-        //Health = healthSlider;
         Health.maxValue = health;
         Health.value = health;
+        SecondaryIcon.GetComponent<Button>().onClick.AddListener(SecondaryClicked);
     }
     public void pickUpXp(float value)
     {
@@ -41,6 +44,46 @@ public class Player : MonoBehaviour
         health = health + value;
         Health.value = health;
     }
+    public void SecondaryClicked()
+    {
+        //Weapons[activeWep].AddComponent<Weapon>().CancelInvoke("shooting");
+
+        if (weaponCounter == 2 && SecondaryIcon != null && Weapon.reloading == false)
+        {
+                //SecondaryIcon.sprite = PrimaryIcon.sprite;
+            if (activeWep == 0)
+            {
+                Unequip();
+                Weapons[1].SetActive(true);
+                Weapons[1].GetComponent<Weapon>().isEquipped = true;
+                PrimaryIcon.transform.position.Set(-30, 0, 0);
+                PrimaryIcon.sprite = Weapons[1].GetComponent<Weapon>().unequipped;
+                SecondaryIcon.sprite = Weapons[0].GetComponent<Weapon>().unequipped;
+                MagSize.text = Weapons[1].GetComponent<Weapon>().maxMagSize.ToString();
+                AmmoCount.text = Weapons[1].GetComponent<Weapon>().bulletCount.ToString();
+                activeWep = 1;
+            } else if (activeWep == 1)
+            {
+                Unequip();
+                Weapons[0].SetActive(true);
+                Weapons[0].GetComponent<Weapon>().isEquipped = true;
+                PrimaryIcon.transform.position.Set(-30, 0, 0);
+                PrimaryIcon.sprite = Weapons[0].GetComponent<Weapon>().unequipped;
+                if (Weapons[1] != null) { SecondaryIcon.sprite = Weapons[1].GetComponent<Weapon>().unequipped; } else { SecondaryIcon.sprite = null; }
+                MagSize.text = Weapons[0].GetComponent<Weapon>().maxMagSize.ToString();
+                AmmoCount.text = Weapons[0].GetComponent<Weapon>().bulletCount.ToString();
+                activeWep = 0;
+            }
+
+        }
+    }
+
+    public void swap(GameObject[] arr, int i, int j)
+    {
+        var temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
 
     public void pickUpItem(GameObject item)
     {
@@ -51,11 +94,12 @@ public class Player : MonoBehaviour
             }
             
             Weapons[weaponCounter] = item;
+            activeWep = weaponCounter;
             item.transform.SetParent(gameObject.transform.GetChild(0));
             item.GetComponent<CapsuleCollider2D>().enabled = false;
             item.transform.localPosition = Vector2.zero;
             item.transform.localRotation = Quaternion.identity;
-            unequip();
+            Unequip();
             Weapons[weaponCounter].GetComponent<Weapon>().isEquipped = true;
             transform.GetComponent<Moobment>().gun = item;
 
@@ -70,7 +114,7 @@ public class Player : MonoBehaviour
 
 
     //Unequip Weapons 
-    private void unequip()
+    private void Unequip()
     {
         for (int i = 0; i < weaponCounter; i++)
         {
@@ -86,7 +130,7 @@ public class Player : MonoBehaviour
     }
 
     //Drop Current Weapon
-    private void dropCurrent()
+    private void DropCurrent()
     {
         for (int i = 0; i < weaponCounter; i++)
         {
@@ -96,7 +140,7 @@ public class Player : MonoBehaviour
                 Weapons[i].transform.parent = null;
                 Weapons[i].GetComponent<Weapon>().isEquipped = false;
                 Weapons[i].GetComponent<Weapon>().Renderer.sprite = Weapons[i].GetComponent<Weapon>().unequipped;
-                StartCoroutine(enableCollider(Weapons[i]));
+                StartCoroutine(EnableCollider(Weapons[i]));
                 Weapons[i] = null;
                 PrimaryIcon.sprite = null;
                 transform.GetComponent<Moobment>().gun = null;
@@ -120,7 +164,7 @@ public class Player : MonoBehaviour
 
 
 
-    IEnumerator enableCollider(GameObject gun)
+    IEnumerator EnableCollider(GameObject gun)
     {
         yield return new WaitForSeconds(1.5f);
         gun.GetComponent<CapsuleCollider2D>().enabled = true;
@@ -141,17 +185,17 @@ public class Player : MonoBehaviour
         //Weapon Dropping
         if (Input.GetKeyDown("z"))
         {
-            dropCurrent();
+            DropCurrent();
         }
 
         // Weapons Array
         if (Input.GetKeyDown("x") && Weapon.reloading == false)
         {
-            unequip();
+            Unequip();
         }
         else if (Input.GetKeyDown("1") && weaponCounter >= 1 && Weapons[0] != null && Weapon.reloading == false)
         {
-            unequip();
+            Unequip();
             Weapons[0].SetActive(true);
             Weapons[0].GetComponent<Weapon>().isEquipped = true;
             PrimaryIcon.transform.position.Set(-30, 0, 0);
@@ -162,7 +206,7 @@ public class Player : MonoBehaviour
         }
         else if (Input.GetKeyDown("2") && weaponCounter == 2 && Weapons[1] != null && Weapon.reloading == false)
         {
-            unequip();
+            Unequip();
             Weapons[1].SetActive(true);
             Weapons[1].GetComponent<Weapon>().isEquipped = true;
             PrimaryIcon.transform.position.Set(-30, 0, 0);
