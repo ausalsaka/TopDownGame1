@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 1506643419706452670}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -330,6 +330,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9596c369c5fd23f40a1feea4e9212a65, type: 3}
   - {fileID: 8300000, guid: fdeccd653769a1649925d24d04fe396b, type: 3}
   stepInterval: 0.5
+  joystick: {fileID: 0}
+  aimstick: {fileID: 0}
+  gun: {fileID: 0}
   moveSpeed: 5
   Renderer: {fileID: 8054800943780046223}
   animator: {fileID: 1506643419706452670}
@@ -372,7 +375,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51723a4206ef3a9428b3bdd4c102f81d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponCounter: 0
+  Weapons:
+  - {fileID: 0}
+  - {fileID: 0}
+  activeWep: 69
+  health: 100
   youDied: {fileID: 2474799730124332835, guid: 60d011015b22a274c89c2331286eb27e, type: 3}
+  rbtn: {fileID: 0}
+  dead: 0
+  Health: {fileID: 0}
+  PrimaryIcon: {fileID: 0}
+  SecondaryIcon: {fileID: 0}
+  MagSize: {fileID: 0}
+  AmmoCount: {fileID: 0}
 --- !u!82 &4200042982149550484
 AudioSource:
   m_ObjectHideFlags: 0
@@ -386,7 +402,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0

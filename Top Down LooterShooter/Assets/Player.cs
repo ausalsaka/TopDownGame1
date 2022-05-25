@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public int activeWep = 69;
     public float health = 100;
     public GameObject youDied;
-    public GameObject rbtn;
+    public GameObject deathMenu;
     [HideInInspector]
     public bool dead = false;
     //public Slider healthSlider;
@@ -76,13 +76,6 @@ public class Player : MonoBehaviour
             }
 
         }
-    }
-
-    public void swap(GameObject[] arr, int i, int j)
-    {
-        var temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
     }
 
     public void pickUpItem(GameObject item)
@@ -162,7 +155,10 @@ public class Player : MonoBehaviour
 
     }
 
-
+    public void Revive()
+    {
+        Debug.Log("revive");
+    }
 
     IEnumerator EnableCollider(GameObject gun)
     {
@@ -178,7 +174,7 @@ public class Player : MonoBehaviour
         {
             Time.timeScale = 0;
             //Instantiate(youDied, transform.position, Quaternion.identity);
-            rbtn.SetActive(true);
+            deathMenu.SetActive(true);
             dead = true;
             
         }

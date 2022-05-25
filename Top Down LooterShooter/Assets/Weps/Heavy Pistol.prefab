@@ -307,24 +307,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   isEquipped: 0
+  aimstick: {fileID: 0}
+  joystick: {fileID: 0}
   Sounds: {fileID: 1905738789}
   reloadClip: {fileID: 8300000, guid: 8a884af4b9865464796fbe004d5bcb9c, type: 3}
   shootClip: {fileID: 8300000, guid: 79cf242950654d1438c056e13719a48f, type: 3}
+  bulletExit: {fileID: 0}
   bulletExitL: {fileID: 1458081538}
   bulletExitR: {fileID: 1375355013}
   bulletPrefab: {fileID: 1390786571325398267, guid: 1912393c1063001459721912a031959d,
     type: 3}
   hand: {fileID: 21300000, guid: 5c40dafb1287e7245b0bae999845eacd, type: 3}
   unequipped: {fileID: 21300000, guid: 2a89c19c9bc8fac43a244044e8cd402d, type: 3}
-  fireRate: 2.25
+  fireRate: 267
   maxMagSize: 6
   reloadTime: 2.25
+  bulletCount: 0
   Magazine: {fileID: 2854410657445350192, guid: 33125d0e718a0174fa071048bb34a6f2,
     type: 3}
   Renderer: {fileID: 2381044401665417971}
   shakeScale: 2
   flashR: {fileID: 1394088773169230466}
   flashL: {fileID: 53933081}
+  AmmoCount: {fileID: 0}
+  reloadButton: {fileID: 0}
 --- !u!70 &2381044401665417968
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

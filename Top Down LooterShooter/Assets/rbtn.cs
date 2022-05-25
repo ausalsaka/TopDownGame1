@@ -23,6 +23,7 @@ public class rbtn : MonoBehaviour
         {
             player.GetComponent<Player>().Weapons[i] = null;
             player.GetComponent<Player>().weaponCounter--;
+            player.GetComponent<Player>().activeWep--;
             i++;
         }
         spawner.mode = 0;

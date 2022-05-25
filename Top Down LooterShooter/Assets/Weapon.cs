@@ -44,7 +44,6 @@ public class Weapon : MonoBehaviour
     public Text AmmoCount;
     //touch screen tools
     public Image reloadButton;
-    private bool touchingInventory = false;
     
 
 
