@@ -113,7 +113,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 432371070553907920}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -200,10 +200,10 @@ MonoBehaviour:
   rotationSpeed: 360
   slowdownDistance: 0
   pickNextWaypointDist: 2
-  endReachedDistance: 0.58
+  endReachedDistance: 0.5
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
-  whenCloseToDestination: 0
+  whenCloseToDestination: 1
   constrainInsideGraph: 1
 --- !u!114 &432371070553907914
 MonoBehaviour:

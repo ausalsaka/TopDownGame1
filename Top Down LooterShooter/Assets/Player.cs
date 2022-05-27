@@ -123,7 +123,7 @@ public class Player : MonoBehaviour
     }
 
     //Drop Current Weapon
-    private void DropCurrent()
+    public void DropCurrent()
     {
         for (int i = 0; i < weaponCounter; i++)
         {

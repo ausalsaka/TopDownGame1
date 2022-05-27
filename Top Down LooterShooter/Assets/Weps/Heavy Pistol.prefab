@@ -322,6 +322,7 @@ MonoBehaviour:
   fireRate: 267
   maxMagSize: 6
   reloadTime: 2.25
+  isShooting: 0
   bulletCount: 0
   Magazine: {fileID: 2854410657445350192, guid: 33125d0e718a0174fa071048bb34a6f2,
     type: 3}

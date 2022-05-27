@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
 
 
 
+
     public void TakeDamage (float damage)
     {
         health -= damage;
@@ -25,7 +26,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator canDamageReset()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         canDamage = true;
     }
 
@@ -44,7 +45,7 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         Vector2 rand = new Vector2(Random.Range(transform.position.x - dropRadius, transform.position.x + dropRadius), Random.Range(transform.position.y - dropRadius, transform.position.y + dropRadius));
-        if (Random.Range(1, 100) >90)
+        if (Random.Range(1, 100) >60)
         {
             Instantiate(drops[0], rand, Quaternion.identity);
         }

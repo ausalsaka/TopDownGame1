@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Moobment : MonoBehaviour
 {
@@ -12,12 +13,13 @@ public class Moobment : MonoBehaviour
     //Movement tools
     public Joystick joystick;
     public Joystick aimstick;
-    public GameObject gun;
-    public float moveSpeed = 5f;
+    [HideInInspector] public GameObject gun;
+    public float moveSpeed = 20f;
     public SpriteRenderer Renderer;
     public Animator animator;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private int direction;
+    public GameObject firePoint;
     private Vector2 moveDirection;
     [HideInInspector]
     public float maxStamina = 100f;
@@ -36,8 +38,8 @@ public class Moobment : MonoBehaviour
 
     private void Start()
     {
+        //rb.constraints =RigidbodyConstraints2D.FreezeRotation;
         dashTime = startDashTime;
-        rb = GetComponent<Rigidbody2D>();
         currentStamina = maxStamina;
     }
 
@@ -45,8 +47,6 @@ public class Moobment : MonoBehaviour
     void Update()
     {
         DashRegen();
-        Dash();
-        PlayerMovement();
         gunFaceMouse();
         //playerFaceMouse();
         walkTimer();
@@ -57,7 +57,11 @@ public class Moobment : MonoBehaviour
             rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
         }
     }
-
+    private void FixedUpdate()
+    {
+        PlayerMovement();
+        Dash();
+    }
 
     public void UseStamina(int amount)
     {
@@ -202,101 +206,56 @@ public class Moobment : MonoBehaviour
         if (Input.touchCount > 0)
         {
 
-
-
-
-
-            int i = 0;
-            while (i < Input.touchCount && gun != null)
-            {
-                Touch touch = Input.GetTouch(i);
-                Vector2 touchDir = new Vector2(
-                    touch.position.x - Camera.main.WorldToScreenPoint(transform.position).x,
-                    touch.position.y - Camera.main.WorldToScreenPoint(transform.position).y
-                    );
-
-                int FID = touch.fingerId;
-
-                if(touch.phase == TouchPhase.Began)
+                foreach (Touch t in Input.touches)
                 {
-                    var startPos = touch.position;
-                    if (startPos.x < 400 && startPos.y < 300) { FID = 100; }
-                }
-                   
-
-                void TouchControlsDirection()
+                    int id = t.fingerId;
+                if (EventSystem.current.IsPointerOverGameObject(id) != true && gun != null)
                 {
-                    transform.GetChild(0).transform.up = touchDir;
-                    if(touchDir.x > 0)
+
+                    Vector2 touchDir2 = new Vector2(t.position.x - Camera.main.WorldToScreenPoint(transform.position).x, t.position.y - Camera.main.WorldToScreenPoint(transform.position).y);
+                    TouchControlsDirection();
+                    void TouchControlsDirection()
                     {
-                        gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitR;
-                        gun.GetComponent<SpriteRenderer>().flipX = false;
-                        Renderer.flipX = false;
-                    }
-                    else
-                    {
-                        gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitL;
-                        gun.GetComponent<SpriteRenderer>().flipX = true;
-                        Renderer.flipX = true;
+                        firePoint.transform.up = touchDir2;
+                        if (touchDir2.x > 0)
+                        {
+                            gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitR;
+                            gun.GetComponent<SpriteRenderer>().flipX = false;
+                            Renderer.flipX = false;
+                        }
+                        else
+                        {
+                            gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitL;
+                            gun.GetComponent<SpriteRenderer>().flipX = true;
+                            Renderer.flipX = true;
+                        }
                     }
                 }
-
-                if (Input.touchCount == 1)
-                {
-                    if ((FID == 100))
+                else if (gun != null && gun.GetComponent<Weapon>().bulletExit != null && gun.GetComponent<Weapon>().isShooting != true)
                     {
                         JoystickControlsDirection();
                     }
-                    else
-                    {
-                        TouchControlsDirection();
-                    }
-                }else if (Input.touchCount == 2)
-                {
-                    if((FID != 100))
-                    {
-                        TouchControlsDirection();
-                    }
                 }
-
-
-                //transform.GetChild(0).transform.up = touchDir;
-                //if (touch.fingerId != 100 && touchDir.x > 0 && gun != null)
-                //{
-                //    gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitR;
-                //    gun.GetComponent<SpriteRenderer>().flipX = false;
-                //    Renderer.flipX = false;
-                //}
-                //else if (touch.fingerId != 100 && touchDir.x < 0 && gun != null)
-                //{
-                //    gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitL;
-                //    gun.GetComponent<SpriteRenderer>().flipX = true;
-                //    Renderer.flipX = true;
-                //}
-                i++;
-            }            
-        }        
+            
+        }      
     }
 
     void JoystickControlsDirection()
     {
-        transform.GetChild(0).transform.up = joystick.Direction;
+        firePoint.transform.rotation = Quaternion.LookRotation(Vector3.forward, (Vector3.up * joystick.Vertical - Vector3.left * joystick.Horizontal));
         if(joystick.Direction.x > 0)
         {
             gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitR;
             gun.GetComponent<SpriteRenderer>().flipX = false;
             Renderer.flipX = false;
         }
-        else
+        else if (joystick.Direction.x < 0)
         {
             gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitL;
             gun.GetComponent<SpriteRenderer>().flipX = true;
             Renderer.flipX = true;
         }
     }
-
-
-
 
     void PlayerMovement()
     {

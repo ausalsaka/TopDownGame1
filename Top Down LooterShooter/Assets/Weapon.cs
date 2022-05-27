@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using MilkShake;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Weapon : MonoBehaviour
 {
-    [HideInInspector]
-    public GameObject Player;
-    [HideInInspector]
-    public bool isEquipped = false;
-    [SerializeField]
-    private Joystick aimstick;
+    [HideInInspector]public GameObject Player;
+    [HideInInspector]public bool isEquipped = false;
+    [SerializeField]private Joystick aimstick;
     public Joystick joystick;
     public AudioSource Sounds;
     public AudioClip reloadClip;
@@ -20,8 +18,7 @@ public class Weapon : MonoBehaviour
     private float chancer2;
     private float posneg;
     private float posneg2;
-    [HideInInspector]
-    public GameObject bulletExit;
+    [HideInInspector]public GameObject bulletExit;
     public GameObject bulletExitL;
     public GameObject bulletExitR;
     public GameObject bulletPrefab;                 //Retrieves Bullet Sprite
@@ -30,9 +27,9 @@ public class Weapon : MonoBehaviour
     public float fireRate = 2f;                     //Sets firerate
     public int maxMagSize = 10;
     public float reloadTime = 2;
+    public bool isShooting = false;
     
-    [HideInInspector]
-    public int bulletCount;
+    [HideInInspector]public int bulletCount;
     public static bool reloading = false;
     public GameObject Magazine;
     public SpriteRenderer Renderer;
@@ -83,19 +80,22 @@ public class Weapon : MonoBehaviour
         if (Input.touchCount>0 && isEquipped && Player.GetComponent<Player>().dead == false)
         {
             int i = 0;
-            while ( i < Input.touchCount)
+            while ( i < Input.touchCount && EventSystem.current.IsPointerOverGameObject(Input.GetTouch(i).fingerId) != true )
             {
             Touch t = Input.GetTouch(i);
                 if (t.phase == TouchPhase.Began && bulletCount != 0 && ((t.position.x > 450 && t.position.y <400) || (t.position.y > 400 && t.position.y < Screen.height - Screen.height/5) || (t.position.x < Screen.width - Screen.width/5 && t.position.y > Screen.height - Screen.height / 5))) 
                 {
                     InvokeRepeating("shooting", 0f, 60/fireRate);
+                    isShooting = true;
                 }else if (t.phase == TouchPhase.Ended && ((t.position.x > 450 && t.position.y < 400) || (t.position.y > 400 && t.position.y < Screen.height - Screen.height / 5) || (t.position.x < Screen.width - Screen.width / 5 && t.position.y > Screen.height - Screen.height / 5)))              
                 {
                     CancelInvoke("shooting");
+                    isShooting = false;
                 }
                 else if (bulletCount == 0)
                 {
                     CancelInvoke("shooting");
+                    isShooting = false;
                     StartCoroutine(reload());
                 }
                 i++;
@@ -139,6 +139,7 @@ public class Weapon : MonoBehaviour
         }else if(bulletCount == 0)
         {
             CancelInvoke("shooting");
+            isShooting = false;
             StartCoroutine(reload());
         }
     }

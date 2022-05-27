@@ -8,6 +8,8 @@ public class rbtn : MonoBehaviour
 {
 
     public GameObject player;
+    public GameObject adButton;
+    public Text adsShown;
 
     // Start is called before the first frame update
     void Start()
@@ -26,9 +28,11 @@ public class rbtn : MonoBehaviour
             player.GetComponent<Player>().activeWep--;
             i++;
         }
+        adsShown.text = "0";
         spawner.mode = 0;
         spawner.currentEnemies = 0;
         SceneManager.LoadScene("Scenes/"+SceneManager.GetActiveScene().name);
         gameObject.SetActive(false);
+        adButton.AddComponent<UnityAdsExample>().adsShown = 0;
     }
 }

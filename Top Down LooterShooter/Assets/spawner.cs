@@ -9,15 +9,14 @@ public class spawner : MonoBehaviour
     public static int mode = 0;
     public static int currentEnemies = 0;
     //public int activateAfterWave = 0;
-    [HideInInspector]
-    public int wave = 1;
+    [HideInInspector] public int wave = 1;
     private float enemiesToSpawn = 5;
     private int enemiesSpawned = 0;
-    private bool stopSpawning = false;
-    private bool currentlySpawning = false;
+    [HideInInspector] public bool stopSpawning = false;
+    [HideInInspector] public bool currentlySpawning = false;
     private float spawnDelay = 2f;
     private float spawnTime = .1f;
-    private bool newWaveStarted = false;
+    [HideInInspector] public bool newWaveStarted = false;
     public Text text;
 
     private void Start()
@@ -50,10 +49,10 @@ public class spawner : MonoBehaviour
         }
     }
 
-    IEnumerator newWave()
+    public IEnumerator newWave()
     {
         newWaveStarted = true;
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(5f);
         wave += 1;
         text.text = wave.ToString();
         enemiesSpawned = 0;
