@@ -209,7 +209,7 @@ public class Moobment : MonoBehaviour
                 foreach (Touch t in Input.touches)
                 {
                     int id = t.fingerId;
-                if (EventSystem.current.IsPointerOverGameObject(id) != true && gun != null)
+                if (gun != null)
                 {
 
                     Vector2 touchDir2 = new Vector2(t.position.x - Camera.main.WorldToScreenPoint(transform.position).x, t.position.y - Camera.main.WorldToScreenPoint(transform.position).y);

@@ -65,22 +65,24 @@ public class Weapon : MonoBehaviour
     }
 
 
+
     //void cancelinvoke(string invoke)
     //{
     //    CancelInvoke(invoke);
     //}
 
-   //void blockTouch()
+    //void blockTouch()
     //{
     //    touchingInventory = true;
     //}
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification = "<Pending>")]
     void fireInputDetection()
     {
 
-        if (Input.touchCount>0 && isEquipped && Player.GetComponent<Player>().dead == false)
+        if (Input.touchCount>0 && isEquipped && Player.GetComponent<Player>().dead == false && ShootButton.pushingShoot)
         {
             int i = 0;
-            while ( i < Input.touchCount && EventSystem.current.IsPointerOverGameObject(Input.GetTouch(i).fingerId) != true )
+            while ( i < Input.touchCount )
             {
             Touch t = Input.GetTouch(i);
                 if (t.phase == TouchPhase.Began && bulletCount != 0 && ((t.position.x > 450 && t.position.y <400) || (t.position.y > 400 && t.position.y < Screen.height - Screen.height/5) || (t.position.x < Screen.width - Screen.width/5 && t.position.y > Screen.height - Screen.height / 5))) 
@@ -98,6 +100,7 @@ public class Weapon : MonoBehaviour
                     isShooting = false;
                     StartCoroutine(reload());
                 }
+
                 i++;
             }
         }

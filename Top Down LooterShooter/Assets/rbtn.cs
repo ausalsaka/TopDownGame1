@@ -34,5 +34,6 @@ public class rbtn : MonoBehaviour
         SceneManager.LoadScene("Scenes/"+SceneManager.GetActiveScene().name);
         gameObject.SetActive(false);
         adButton.AddComponent<UnityAdsExample>().adsShown = 0;
+        ShootButton.pushingShoot = false;
     }
 }
