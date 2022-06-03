@@ -85,11 +85,11 @@ public class Weapon : MonoBehaviour
             while ( i < Input.touchCount )
             {
             Touch t = Input.GetTouch(i);
-                if (t.phase == TouchPhase.Began && bulletCount != 0 && ((t.position.x > 450 && t.position.y <400) || (t.position.y > 400 && t.position.y < Screen.height - Screen.height/5) || (t.position.x < Screen.width - Screen.width/5 && t.position.y > Screen.height - Screen.height / 5))) 
+                if (t.phase == TouchPhase.Began && bulletCount != 0 ) 
                 {
                     InvokeRepeating("shooting", 0f, 60/fireRate);
                     isShooting = true;
-                }else if (t.phase == TouchPhase.Ended && ((t.position.x > 450 && t.position.y < 400) || (t.position.y > 400 && t.position.y < Screen.height - Screen.height / 5) || (t.position.x < Screen.width - Screen.width / 5 && t.position.y > Screen.height - Screen.height / 5)))              
+                }else if (t.phase == TouchPhase.Ended)              
                 {
                     CancelInvoke("shooting");
                     isShooting = false;

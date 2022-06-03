@@ -10,7 +10,7 @@ public class ShootButton : MonoBehaviour
     
     void Start()
     {
-        
+        gameObject.GetComponent<Image>().alphaHitTestMinimumThreshold = .9f;
     }
 
     public void Pushed()
