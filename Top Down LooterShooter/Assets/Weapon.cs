@@ -9,7 +9,6 @@ public class Weapon : MonoBehaviour
 {
     [HideInInspector]public GameObject Player;
     [HideInInspector]public bool isEquipped = false;
-    [SerializeField]private Joystick aimstick;
     public Joystick joystick;
     public AudioSource Sounds;
     public AudioClip reloadClip;
@@ -19,9 +18,9 @@ public class Weapon : MonoBehaviour
     private float posneg;
     private float posneg2;
     [HideInInspector]public GameObject bulletExit;
-    public GameObject bulletExitL;
-    public GameObject bulletExitR;
-    public GameObject bulletPrefab;                 //Retrieves Bullet Sprite
+    [HideInInspector] public GameObject bulletExitL;
+    [HideInInspector] public GameObject bulletExitR;
+    [HideInInspector] public GameObject bulletPrefab;                 //Retrieves Bullet Sprite
     public Sprite hand;
     public Sprite unequipped;
     public float fireRate = 2f;                     //Sets firerate

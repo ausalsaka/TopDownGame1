@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     public Text MagSize;
     public Text AmmoCount;
     //touch controls
-    //public GameObject shootButton;
+    public GameObject shootButton;
 
 
 
@@ -158,7 +158,7 @@ public class Player : MonoBehaviour
     public void Revive()
     {
         Debug.Log("revive");
-        //shootButton.SetActive(true);
+        shootButton.SetActive(true);
     }
 
     IEnumerator EnableCollider(GameObject gun)
@@ -177,7 +177,7 @@ public class Player : MonoBehaviour
             //Instantiate(youDied, transform.position, Quaternion.identity);
             deathMenu.SetActive(true);
             dead = true;
-            //shootButton.SetActive(false);
+            shootButton.SetActive(false);
         }
         //Weapon Dropping
         if (Input.GetKeyDown("z"))
