@@ -93,8 +93,9 @@ public class Weapon : MonoBehaviour
                 {
                     CancelInvoke("shooting");
                     isShooting = false;
+                    //ShootButton.pushingShoot = false;
                 }
-                else if (bulletCount == 0)
+                 if (bulletCount == 0)
                 {
                     CancelInvoke("shooting");
                     isShooting = false;

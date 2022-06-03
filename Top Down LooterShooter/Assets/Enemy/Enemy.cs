@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         Vector2 rand = new Vector2(Random.Range(transform.position.x - dropRadius, transform.position.x + dropRadius), Random.Range(transform.position.y - dropRadius, transform.position.y + dropRadius));
-        if (Random.Range(1, 100) >60)
+        if (Random.Range(1, 100) >85)
         {
             Instantiate(drops[0], rand, Quaternion.identity);
         }
