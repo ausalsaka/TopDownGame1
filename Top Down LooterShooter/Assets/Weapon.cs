@@ -135,20 +135,23 @@ public class Weapon : MonoBehaviour
 
     void shooting()
     {
-        if(bulletCount != 0 && reloading != true && isEquipped)
-        {
-            Instantiate(bulletPrefab, bulletExit.transform.position, bulletExit.transform.rotation);
-            StartCoroutine(muzzleFlash());
-            Sounds.PlayOneShot(shootClip);
-            CinemachineShake.Instance.ShakeCamera(shakeScale, .2f);
-            bulletCount--;
-            AmmoCount.text = bulletCount.ToString();
-        }else if(bulletCount == 0 && isEquipped)
-        {
-            CancelInvoke("shooting");
-            isShooting = false;
-            StartCoroutine(reload());
-        }
+
+            if (bulletCount != 0 && reloading != true && isEquipped)
+            {
+                Instantiate(bulletPrefab, bulletExit.transform.position, bulletExit.transform.rotation);
+                StartCoroutine(muzzleFlash());
+                Sounds.PlayOneShot(shootClip);
+                CinemachineShake.Instance.ShakeCamera(shakeScale, .2f);
+                bulletCount--;
+                AmmoCount.text = bulletCount.ToString();
+            }
+            else if (bulletCount == 0 && isEquipped)
+            {
+                CancelInvoke("shooting");
+                isShooting = false;
+                StartCoroutine(reload());
+            }
+        
     }
 
     IEnumerator dropMag()
@@ -183,6 +186,7 @@ public class Weapon : MonoBehaviour
             Sounds.PlayOneShot(reloadClip);
             StartCoroutine(dropMag());
             yield return new WaitForSeconds(reloadTime);
+            //if(Player.GetComponent<Player>())
             bulletCount = maxMagSize;
             reloading = false;
             AmmoCount.text = bulletCount.ToString();
@@ -205,3 +209,4 @@ public class Weapon : MonoBehaviour
         }
     }
 }
+

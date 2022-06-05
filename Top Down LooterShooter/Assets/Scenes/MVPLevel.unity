@@ -142,7 +142,6 @@ GameObject:
   - component: {fileID: 14428479}
   - component: {fileID: 14428478}
   - component: {fileID: 14428477}
-  - component: {fileID: 14428476}
   m_Layer: 0
   m_Name: middle
   m_TagString: Untagged
@@ -169,51 +168,6 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: -0.42}
   m_SizeDelta: {x: 1943.5, y: 1032}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &14428476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 14428474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 14428477}
-          m_TargetAssemblyTypeName: ShootButton, Assembly-CSharp
-          m_MethodName: Released
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 14428477}
-          m_TargetAssemblyTypeName: ShootButton, Assembly-CSharp
-          m_MethodName: Pushed
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &14428477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,6 +180,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3fe1c32c3d46e147b6bcbfcb273260c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootArea: {fileID: 951127302}
+  player: {fileID: 4803759835406677962}
+  firePoint: {fileID: 810475099}
+  gun: {fileID: 0}
+  joystick: {fileID: 158331920}
 --- !u!114 &14428478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,6 +427,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 336011845020745189, guid: 1fdf5d850937e9d419252a8a5d4ea901,
     type: 3}
   m_PrefabInstance: {fileID: 1556682119}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &158331920 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2929252284162716005, guid: 128bac1500511ff48b0ad85cdbb38af7,
+    type: 3}
+  m_PrefabInstance: {fileID: 667019578}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &206382997
 PrefabInstance:
@@ -57248,7 +57213,7 @@ PrefabInstance:
     - target: {fileID: 41783177944610613, guid: 128bac1500511ff48b0ad85cdbb38af7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.6739995
+      value: -1.6739994
       objectReference: {fileID: 0}
     - target: {fileID: 41783177944610613, guid: 128bac1500511ff48b0ad85cdbb38af7,
         type: 3}
@@ -57363,6 +57328,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 336011845020745189, guid: 1fdf5d850937e9d419252a8a5d4ea901,
     type: 3}
   m_PrefabInstance: {fileID: 1133003847}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &810475099 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8054800942792695347, guid: 677597afb1e50554f91195d557eec86a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1506643420078252806}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &842251517
 PrefabInstance:
@@ -69312,7 +69283,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 667019578}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 158331920}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
@@ -69338,7 +69309,7 @@ PrefabInstance:
     - target: {fileID: 2861162948363150749, guid: b7b9b5db80de77c45a1e6b9e9cc7619d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.6739995
+      value: -1.6739994
       objectReference: {fileID: 0}
     - target: {fileID: 2861162948363150749, guid: b7b9b5db80de77c45a1e6b9e9cc7619d,
         type: 3}
@@ -70196,7 +70167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1422164105
 Transform:
   m_ObjectHideFlags: 0

@@ -95,6 +95,7 @@ public class Player : MonoBehaviour
             Unequip();
             Weapons[weaponCounter].GetComponent<Weapon>().isEquipped = true;
             transform.GetComponent<Moobment>().gun = item;
+            shootArea.GetComponentInChildren<ShootButton>().gun = item;
 
             weaponCounter++;
             Weapons[weaponCounter-1].GetComponent<Weapon>().Renderer.sprite = Weapons[weaponCounter-1].GetComponent<Weapon>().hand;
@@ -137,6 +138,7 @@ public class Player : MonoBehaviour
                 Weapons[i] = null;
                 PrimaryIcon.sprite = null;
                 transform.GetComponent<Moobment>().gun = null;
+                shootArea.GetComponentInChildren<ShootButton>().gun = null;
                 MagSize.text = "#";
                 AmmoCount.text = "#";
                 if (Weapons[1] != null && Weapons[0] == null)
@@ -144,6 +146,7 @@ public class Player : MonoBehaviour
                     Weapons[0] = Weapons[1];
                     Weapons[1] = null;
                     transform.GetComponent<Moobment>().gun = Weapons[0];
+                    shootArea.GetComponentInChildren<ShootButton>().gun = Weapons[0];
                     PrimaryIcon.sprite = Weapons[0].GetComponent<Weapon>().unequipped;
                     MagSize.text = Weapons[0].GetComponent<Weapon>().maxMagSize.ToString();
                     AmmoCount.text = Weapons[0].GetComponent<Weapon>().bulletCount.ToString();

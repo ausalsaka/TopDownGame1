@@ -50,7 +50,7 @@ public class Moobment : MonoBehaviour
         gunFaceMouse();
         //playerFaceMouse();
         walkTimer();
-
+        PlayerMovement();
         //Changing the players position
         //if (direction == 0)
         {
@@ -59,7 +59,7 @@ public class Moobment : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        PlayerMovement();
+
         Dash();
     }
 
@@ -202,47 +202,39 @@ public class Moobment : MonoBehaviour
     void gunFaceMouse()
     {
         //Getting touch position
-
         if (Input.touchCount > 0)
         {
-
-                foreach (Touch t in Input.touches)
+            foreach (Touch t in Input.touches)
+            {
+            if (gun != null && ShootButton.pushingShoot)
+            {                              
+                Vector2 touchDir2 = new Vector2(t.position.x - Camera.main.WorldToScreenPoint(transform.position).x, t.position.y - Camera.main.WorldToScreenPoint(transform.position).y);
+                firePoint.transform.up = touchDir2;
+                if (touchDir2.x > 0)
                 {
-                    int id = t.fingerId;
-                if (gun != null)
+                    gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitR;
+                    gun.GetComponent<SpriteRenderer>().flipX = false;
+                    Renderer.flipX = false;
+                }
+                else
                 {
-
-                    Vector2 touchDir2 = new Vector2(t.position.x - Camera.main.WorldToScreenPoint(transform.position).x, t.position.y - Camera.main.WorldToScreenPoint(transform.position).y);
-                    TouchControlsDirection();
-                    void TouchControlsDirection()
-                    {
-                        firePoint.transform.up = touchDir2;
-                        if (touchDir2.x > 0)
-                        {
-                            gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitR;
-                            gun.GetComponent<SpriteRenderer>().flipX = false;
-                            Renderer.flipX = false;
-                        }
-                        else
-                        {
-                            gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitL;
-                            gun.GetComponent<SpriteRenderer>().flipX = true;
-                            Renderer.flipX = true;
-                        }
-                    }
+                    gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitL;
+                    gun.GetComponent<SpriteRenderer>().flipX = true;
+                    Renderer.flipX = true;
                 }
-                else if (gun != null && gun.GetComponent<Weapon>().bulletExit != null && gun.GetComponent<Weapon>().isShooting != true)
-                    {
-                        JoystickControlsDirection();
-                    }
+            }            
+            else if (gun != null)
+                {
+                    JoystickControlsDirection();
                 }
-            
+            }            
         }      
     }
 
-    void JoystickControlsDirection()
+    public void JoystickControlsDirection()
     {
-        firePoint.transform.rotation = Quaternion.LookRotation(Vector3.forward, (Vector3.up * joystick.Vertical - Vector3.left * joystick.Horizontal));
+        //firePoint.transform.rotation = Quaternion.LookRotation(Vector3.forward, (Vector3.up * joystick.Vertical - Vector3.left * joystick.Horizontal));
+        firePoint.transform.up = joystick.Direction;
         if(joystick.Direction.x > 0)
         {
             gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitR;
@@ -266,6 +258,7 @@ public class Moobment : MonoBehaviour
         {
             moveX = Input.GetAxisRaw("Horizontal");
             moveY = Input.GetAxisRaw("Vertical");
+
         }
         else
         {

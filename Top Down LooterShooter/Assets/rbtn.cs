@@ -31,9 +31,10 @@ public class rbtn : MonoBehaviour
         adsShown.text = "0";
         spawner.mode = 0;
         spawner.currentEnemies = 0;
-        SceneManager.LoadScene("Scenes/"+SceneManager.GetActiveScene().name);
-        gameObject.SetActive(false);
         adButton.AddComponent<UnityAdsExample>().adsShown = 0;
         ShootButton.pushingShoot = false;
+        Weapon.reloading = false;
+        SceneManager.LoadScene("Scenes/"+SceneManager.GetActiveScene().name);
+        gameObject.SetActive(false);
     }
 }
