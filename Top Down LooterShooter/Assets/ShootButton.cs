@@ -16,15 +16,13 @@ public class ShootButton : MonoBehaviour
     public void Pushed()
     {
         pushingShoot = true;
+        Debug.Log("pushed");
     }
     public void Released()
     {
         pushingShoot = false;
-    }
-    
-    // Update is called once per frame
-    void Update()
-    {
+        CancelInvoke("shooting");
         
     }
+    
 }

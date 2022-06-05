@@ -41,7 +41,7 @@ public class Weapon : MonoBehaviour
     public Text AmmoCount;
     //touch screen tools
     public Image reloadButton;
-    
+        
 
 
     private void Awake()
@@ -104,6 +104,10 @@ public class Weapon : MonoBehaviour
                 i++;
             }
         }
+        else
+        {
+            CancelInvoke("shooting");
+        }
     }
 
     IEnumerator muzzleFlash()
@@ -131,7 +135,7 @@ public class Weapon : MonoBehaviour
 
     void shooting()
     {
-        if(bulletCount != 0 && reloading != true)
+        if(bulletCount != 0 && reloading != true && isEquipped)
         {
             Instantiate(bulletPrefab, bulletExit.transform.position, bulletExit.transform.rotation);
             StartCoroutine(muzzleFlash());
@@ -139,7 +143,7 @@ public class Weapon : MonoBehaviour
             CinemachineShake.Instance.ShakeCamera(shakeScale, .2f);
             bulletCount--;
             AmmoCount.text = bulletCount.ToString();
-        }else if(bulletCount == 0)
+        }else if(bulletCount == 0 && isEquipped)
         {
             CancelInvoke("shooting");
             isShooting = false;

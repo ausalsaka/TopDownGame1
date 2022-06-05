@@ -198,6 +198,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 14428477}
+          m_TargetAssemblyTypeName: ShootButton, Assembly-CSharp
+          m_MethodName: Pushed
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &14428477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,7 +233,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14428474}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -253,19 +269,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 14428479}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14428477}
-        m_TargetAssemblyTypeName: ShootButton, Assembly-CSharp
-        m_MethodName: Pushed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &14428479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -559,6 +563,11 @@ PrefabInstance:
     - target: {fileID: 1334459372307471498, guid: e282906d1f376b0419036c92cc9360d6,
         type: 3}
       propertyPath: text
+      value: 
+      objectReference: {fileID: 1776265217}
+    - target: {fileID: 1334459372307471498, guid: e282906d1f376b0419036c92cc9360d6,
+        type: 3}
+      propertyPath: RoundCounter
       value: 
       objectReference: {fileID: 1776265217}
     - target: {fileID: 1334459372307471499, guid: e282906d1f376b0419036c92cc9360d6,
@@ -72554,6 +72563,7 @@ MonoBehaviour:
   deathMenu: {fileID: 1494208372}
   adsShown: 0
   text: {fileID: 357116925}
+  shootArea: {fileID: 951127302}
 --- !u!224 &1919001857 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1741675166, guid: 128bac1500511ff48b0ad85cdbb38af7,
@@ -72894,6 +72904,11 @@ PrefabInstance:
       objectReference: {fileID: 1776265217}
     - target: {fileID: 1334459372307471498, guid: e282906d1f376b0419036c92cc9360d6,
         type: 3}
+      propertyPath: RoundCounter
+      value: 
+      objectReference: {fileID: 1776265217}
+    - target: {fileID: 1334459372307471498, guid: e282906d1f376b0419036c92cc9360d6,
+        type: 3}
       propertyPath: activateAfterWave
       value: 2
       objectReference: {fileID: 0}
@@ -73051,6 +73066,11 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 1776265217}
+    - target: {fileID: 1334459372307471498, guid: e282906d1f376b0419036c92cc9360d6,
+        type: 3}
+      propertyPath: RoundCounter
+      value: 
+      objectReference: {fileID: 1776265217}
     - target: {fileID: 1334459372307471499, guid: e282906d1f376b0419036c92cc9360d6,
         type: 3}
       propertyPath: m_RootOrder
@@ -73135,6 +73155,11 @@ PrefabInstance:
       propertyPath: deathMenu
       value: 
       objectReference: {fileID: 1494208372}
+    - target: {fileID: 2376494301209288095, guid: 677597afb1e50554f91195d557eec86a,
+        type: 3}
+      propertyPath: shootArea
+      value: 
+      objectReference: {fileID: 951127302}
     - target: {fileID: 2376494301209288095, guid: 677597afb1e50554f91195d557eec86a,
         type: 3}
       propertyPath: PrimaryIcon

@@ -13,11 +13,13 @@ public class UnityAdsExample : MonoBehaviour
     public GameObject deathMenu;
     [HideInInspector]public int adsShown = 0;
     public Text text;
+    public GameObject shootArea;
 
 
 
     private void Awake()
     {
+        
         if (Application.platform == RuntimePlatform.IPhonePlayer)
         {
             gameId = iOSId;
@@ -42,6 +44,7 @@ public class UnityAdsExample : MonoBehaviour
     void Start()
     {
         Advertisement.Initialize(gameId);
+        
     }
 
     [System.Obsolete]
@@ -69,6 +72,7 @@ public class UnityAdsExample : MonoBehaviour
     void keepPlaying()
     {
         Time.timeScale = 1;
+        shootArea.SetActive(true);
         deathMenu.SetActive(false);
         player.GetComponent<Player>().dead = false;
         player.GetComponent<Player>().health = 100;

@@ -17,18 +17,18 @@ public class spawner : MonoBehaviour
     private float spawnDelay = 2f;
     private float spawnTime = .1f;
     [HideInInspector] public bool newWaveStarted = false;
-    public Text text;
+    public Text RoundCounter;
 
     private void Start()
     {
-        text.text = "Shoot Barrel To Begin";
+        RoundCounter.text = "Shoot Barrel To Begin";
     }
 
     private void Update()
     {
         if(mode == 1)
         {
-            text.text = wave.ToString();
+            RoundCounter.text = wave.ToString();
             if (enemiesSpawned / enemiesToSpawn >= 1)
             {
                 stopSpawning = true;
@@ -54,7 +54,7 @@ public class spawner : MonoBehaviour
         newWaveStarted = true;
         yield return new WaitForSeconds(5f);
         wave += 1;
-        text.text = wave.ToString();
+        RoundCounter.text = wave.ToString();
         enemiesSpawned = 0;
         Debug.Log("newwave");
         stopSpawning = false;
@@ -73,7 +73,7 @@ public class spawner : MonoBehaviour
             Instantiate(enemy, gameObject.transform);
             enemiesSpawned += 1;
             currentEnemies += 1;
-            Debug.Log("enemiesSpawned: " + enemiesSpawned + "/" + enemiesToSpawn + "        current: " + currentEnemies);
+            //Debug.Log("enemiesSpawned: " + enemiesSpawned + "/" + enemiesToSpawn + "        current: " + currentEnemies);
         }
 
     }

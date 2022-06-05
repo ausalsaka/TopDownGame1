@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     public Text MagSize;
     public Text AmmoCount;
     //touch controls
-
+    public GameObject shootArea;
 
 
 
@@ -176,6 +176,7 @@ public class Player : MonoBehaviour
             //Instantiate(youDied, transform.position, Quaternion.identity);
             deathMenu.SetActive(true);
             dead = true;
+            shootArea.SetActive(false);
             
         }
         //Weapon Dropping
