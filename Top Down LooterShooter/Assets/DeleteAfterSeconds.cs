@@ -5,14 +5,57 @@ using UnityEngine;
 public class DeleteAfterSeconds : MonoBehaviour
 {
     public float seconds;
-    void Awake()
+    private SpriteRenderer rendara;
+    public void Start()
     {
-        StartCoroutine(delete(seconds));
+        StartCoroutine(Delete(seconds));
+        if(gameObject.GetComponent<SpriteRenderer>() != null) rendara = gameObject.GetComponent<SpriteRenderer>();
+        
     }
-    IEnumerator delete(float time)
+
+    IEnumerator Delete(float time)
     {
-        yield return new WaitForSeconds(time);
-        Destroy(gameObject);
+        if(rendara != null)
+        {
+            yield return new WaitForSeconds(time - 10f);
+            rendara.enabled = true;
+            yield return new WaitForSeconds(1f);
+            rendara.enabled = false;
+            yield return new WaitForSeconds(1f);
+            rendara.enabled = true;
+            yield return new WaitForSeconds(1f);
+            rendara.enabled = false;
+            yield return new WaitForSeconds(1f);
+            rendara.enabled = true;
+            yield return new WaitForSeconds(1f);
+            rendara.enabled = false;
+            yield return new WaitForSeconds(1f);
+            rendara.enabled = true;
+            yield return new WaitForSeconds(1f);
+            rendara.enabled = false;
+            yield return new WaitForSeconds(.5f);
+            rendara.enabled = true;
+            yield return new WaitForSeconds(.5f);
+            rendara.enabled = false;
+            yield return new WaitForSeconds(.5f); //3.5
+            rendara.enabled = true;
+            yield return new WaitForSeconds(.5f); //4
+            rendara.enabled = false;
+            yield return new WaitForSeconds(.25f); //4.25
+            rendara.enabled = true;
+            yield return new WaitForSeconds(.25f); //4.5
+            rendara.enabled = false;
+            yield return new WaitForSeconds(.25f); //4.75
+            rendara.enabled = true;
+            yield return new WaitForSeconds(.25f);
+            Destroy(gameObject);
+        }
+        else
+        {
+            yield return new WaitForSeconds(time);
+            Destroy(gameObject);
+        }
+
     }
 
 }

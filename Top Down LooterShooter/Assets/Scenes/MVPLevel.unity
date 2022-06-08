@@ -745,6 +745,11 @@ PrefabInstance:
       objectReference: {fileID: 1343676233}
     - target: {fileID: 2381044401665417969, guid: f7f881a9b86ad3b458b2e948e634e7ce,
         type: 3}
+      propertyPath: reloadTime
+      value: 2.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2381044401665417969, guid: f7f881a9b86ad3b458b2e948e634e7ce,
+        type: 3}
       propertyPath: reloadButton
       value: 
       objectReference: {fileID: 1512259503}
@@ -993,6 +998,11 @@ PrefabInstance:
       objectReference: {fileID: 1343676233}
     - target: {fileID: 5506805586791883160, guid: 1fa18b8693e49c94b92a1efe79d24b68,
         type: 3}
+      propertyPath: reloadTime
+      value: 2.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5506805586791883160, guid: 1fa18b8693e49c94b92a1efe79d24b68,
+        type: 3}
       propertyPath: unequipped
       value: 
       objectReference: {fileID: 21300000, guid: 52850ef888d06144782771c7a512c5c6,
@@ -1021,6 +1031,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1550281459, guid: 7ce17b91bb6a964479353641aa514aab, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 271d47f35825ad849ac9d885eddfd014,
+        type: 2}
     - target: {fileID: 1671100169, guid: 7ce17b91bb6a964479353641aa514aab, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -1150,6 +1165,11 @@ PrefabInstance:
       propertyPath: AmmoCount
       value: 
       objectReference: {fileID: 1343676233}
+    - target: {fileID: 9161342541221581689, guid: 7ce17b91bb6a964479353641aa514aab,
+        type: 3}
+      propertyPath: reloadTime
+      value: 2.3
+      objectReference: {fileID: 0}
     - target: {fileID: 9161342541221581689, guid: 7ce17b91bb6a964479353641aa514aab,
         type: 3}
       propertyPath: unequipped
@@ -70167,7 +70187,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1422164105
 Transform:
   m_ObjectHideFlags: 0

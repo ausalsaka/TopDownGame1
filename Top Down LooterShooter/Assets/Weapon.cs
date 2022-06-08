@@ -27,7 +27,7 @@ public class Weapon : MonoBehaviour
     public float fireRate = 2f;                     //Sets firerate
     public int maxMagSize = 10;
     public float reloadTime = 2;
-    public bool isShooting = false;
+    [HideInInspector] public bool isShooting = false;
     
     [HideInInspector]public int bulletCount;
     public static bool reloading = false;
@@ -85,14 +85,11 @@ public class Weapon : MonoBehaviour
             while ( i < Input.touchCount )
             {
             Touch t = Input.GetTouch(i);
-                if (t.phase == TouchPhase.Began && bulletCount != 0 ) 
+                if (t.phase == TouchPhase.Began && bulletCount != 0 
+                    && !isShooting ) 
                 {
                     InvokeRepeating("shooting", 0f, 60/fireRate);
                     isShooting = true;
-                }else if (t.phase == TouchPhase.Ended)              
-                {
-                    CancelInvoke("shooting");
-                    isShooting = false;
                 }
                 else if (bulletCount == 0)
                 {
@@ -107,6 +104,7 @@ public class Weapon : MonoBehaviour
         else
         {
             CancelInvoke("shooting");
+            isShooting = false;
         }
     }
 
@@ -136,10 +134,11 @@ public class Weapon : MonoBehaviour
     void shooting()
     {
 
-            if (bulletCount != 0 && reloading != true && isEquipped)
+        if (bulletCount != 0 && reloading != true && isEquipped)
             {
                 Instantiate(bulletPrefab, bulletExit.transform.position, bulletExit.transform.rotation);
                 StartCoroutine(muzzleFlash());
+                
                 Sounds.PlayOneShot(shootClip);
                 CinemachineShake.Instance.ShakeCamera(shakeScale, .2f);
                 bulletCount--;

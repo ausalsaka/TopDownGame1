@@ -208,22 +208,41 @@ public class Moobment : MonoBehaviour
             {
             if (gun != null && ShootButton.pushingShoot)
             {                              
-                Vector2 touchDir2 = new Vector2(t.position.x - Camera.main.WorldToScreenPoint(transform.position).x, t.position.y - Camera.main.WorldToScreenPoint(transform.position).y);
-                firePoint.transform.up = touchDir2;
-                if (touchDir2.x > 0)
+                if(Input.touchCount == 1)
                 {
-                    gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitR;
-                    gun.GetComponent<SpriteRenderer>().flipX = false;
-                    Renderer.flipX = false;
-                }
-                else
+                    Vector2 touchDir2 = new Vector2(t.position.x - Camera.main.WorldToScreenPoint(transform.position).x, t.position.y - Camera.main.WorldToScreenPoint(transform.position).y);
+                    firePoint.transform.up = touchDir2;
+                    if (touchDir2.x > 0)
+                    {
+                        gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitR;
+                        gun.GetComponent<SpriteRenderer>().flipX = false;
+                        Renderer.flipX = false;
+                    }
+                    else
+                    {
+                        gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitL;
+                        gun.GetComponent<SpriteRenderer>().flipX = true;
+                        Renderer.flipX = true;
+                    }
+                }else if (Input.touchCount > 1 && t.position.x !> Screen.width/5 && t.position.y !> Screen.height/5)
                 {
-                    gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitL;
-                    gun.GetComponent<SpriteRenderer>().flipX = true;
-                    Renderer.flipX = true;
+                    Vector2 touchDir2 = new Vector2(t.position.x - Camera.main.WorldToScreenPoint(transform.position).x, t.position.y - Camera.main.WorldToScreenPoint(transform.position).y);
+                    firePoint.transform.up = touchDir2;
+                    if (touchDir2.x > 0)
+                    {
+                        gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitR;
+                        gun.GetComponent<SpriteRenderer>().flipX = false;
+                        Renderer.flipX = false;
+                    }
+                    else
+                    {
+                        gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitL;
+                        gun.GetComponent<SpriteRenderer>().flipX = true;
+                        Renderer.flipX = true;
+                    }
                 }
             }            
-            else if (gun != null)
+            else if (gun != null && !ShootButton.pushingShoot)
                 {
                     JoystickControlsDirection();
                 }
