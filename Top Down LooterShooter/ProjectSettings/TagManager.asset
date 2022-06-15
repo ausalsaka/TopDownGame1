@@ -8,6 +8,7 @@ TagManager:
   - breakable
   - enemy
   - spawner
+  - PauseMenu
   layers:
   - Default
   - TransparentFX
