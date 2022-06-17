@@ -72,7 +72,7 @@ public class UnityAdsExample : MonoBehaviour
     void keepPlaying()
     {
         Time.timeScale = 1;
-        shootArea.SetActive(true);
+        if(!player.GetComponent<Moobment>().joystickAim) shootArea.SetActive(true);
         deathMenu.SetActive(false);
         player.GetComponent<Player>().dead = false;
         player.GetComponent<Player>().health = 100;

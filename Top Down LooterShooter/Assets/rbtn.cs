@@ -17,7 +17,7 @@ public class rbtn : MonoBehaviour
         gameObject.GetComponent<Button>().onClick.AddListener(RestartLevel);
     }
 
-    void RestartLevel()
+    public void RestartLevel()
     {
         Time.timeScale = 1;
         int i = 0;

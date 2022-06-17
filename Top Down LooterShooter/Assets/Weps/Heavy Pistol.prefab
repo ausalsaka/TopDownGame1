@@ -320,8 +320,8 @@ MonoBehaviour:
   hand: {fileID: 21300000, guid: 5c40dafb1287e7245b0bae999845eacd, type: 3}
   unequipped: {fileID: 21300000, guid: 2a89c19c9bc8fac43a244044e8cd402d, type: 3}
   fireRate: 267
-  maxMagSize: 6
-  reloadTime: 2.25
+  maxMagSize: 11
+  reloadTime: 2.3
   isShooting: 0
   bulletCount: 0
   Magazine: {fileID: 2854410657445350192, guid: 33125d0e718a0174fa071048bb34a6f2,

@@ -28,7 +28,6 @@ public class Weapon : MonoBehaviour
     public int maxMagSize = 10;
     public float reloadTime = 2;
     [HideInInspector] public bool isShooting = false;
-    
     [HideInInspector]public int bulletCount;
     public static bool reloading = false;
     public GameObject Magazine;
@@ -78,8 +77,22 @@ public class Weapon : MonoBehaviour
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification = "<Pending>")]
     void fireInputDetection()
     {
+        if (aimstick.Direction.magnitude > .5 && isEquipped && Player.GetComponent<Player>().dead == false) 
+        {
+            if (bulletCount != 0 && !isShooting)
+            {
+                InvokeRepeating("shooting", 0f, 60 / fireRate);
+                isShooting = true;
+            }
+            else if (bulletCount == 0)
+            {
+                CancelInvoke("shooting");
+                isShooting = false;
+                StartCoroutine(reload());
+            }
 
-        if (Input.touchCount>0 && isEquipped && Player.GetComponent<Player>().dead == false && ShootButton.pushingShoot)
+        }
+        else if (Input.touchCount>0 && isEquipped && Player.GetComponent<Player>().dead == false && ShootButton.pushingShoot)
         {
             int i = 0;
             while ( i < Input.touchCount )
