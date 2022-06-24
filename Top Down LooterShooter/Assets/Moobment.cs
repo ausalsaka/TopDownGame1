@@ -238,18 +238,12 @@ public class Moobment : MonoBehaviour
         }
         else
         {
-            if (Input.touchCount > 0)
+            if (Input.touchCount == 1)
             {
-                foreach (Touch t in Input.touches)
-                {
-                    //Ray ray = Camera.main.ScreenPointToRay(Input.touches[t.fingerId].position);
-                    //RaycastHit hit;
-                    //if(Physics.Raycast())
-                    if (gun != null && ShootButton.pushingShoot)
-                    {
-                        if (Input.touchCount == 1)
+                        if (gun != null && !EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
                         {
-                            Vector2 touchDir2 = new Vector2(t.position.x - Camera.main.WorldToScreenPoint(transform.position).x, t.position.y - Camera.main.WorldToScreenPoint(transform.position).y);
+                            Debug.Log("looking at touch");
+                            Vector2 touchDir2 = new Vector2(Input.GetTouch(0).position.x - Camera.main.WorldToScreenPoint(transform.position).x, Input.GetTouch(0).position.y - Camera.main.WorldToScreenPoint(transform.position).y);
                             firePoint.transform.up = touchDir2;
                             if (touchDir2.x > 0)
                             {
@@ -264,27 +258,32 @@ public class Moobment : MonoBehaviour
                                 Renderer.flipX = true;
                             }
                         }
-                        else if (Input.touchCount > 1 && joystick.Direction != Vector2.zero)
-                        {
-                            Vector2 touchDir2 = new Vector2(t.position.x - Camera.main.WorldToScreenPoint(transform.position).x, t.position.y - Camera.main.WorldToScreenPoint(transform.position).y);
-                            firePoint.transform.up = touchDir2;
-                            if (touchDir2.x > 0)
-                            {
-                                gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitR;
-                                gun.GetComponent<SpriteRenderer>().flipX = false;
-                                Renderer.flipX = false;
-                            }
-                            else
-                            {
-                                gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitL;
-                                gun.GetComponent<SpriteRenderer>().flipX = true;
-                                Renderer.flipX = true;
-                            }
-                        }
-                    }
-                    else if (gun != null && !ShootButton.pushingShoot)
+                    else if (gun != null )
                     {
                         JoystickControlsDirection();
+                    }
+                //}
+            }else if(Input.touchCount > 1)
+            {
+                foreach(Touch t in Input.touches)
+                {
+                    if (!EventSystem.current.IsPointerOverGameObject(t.fingerId) && gun != null)
+                    {
+                        Debug.Log("looking at touch");
+                        Vector2 touchDir2 = new Vector2(Input.GetTouch(0).position.x - Camera.main.WorldToScreenPoint(transform.position).x, Input.GetTouch(0).position.y - Camera.main.WorldToScreenPoint(transform.position).y);
+                        firePoint.transform.up = touchDir2;
+                        if (touchDir2.x > 0)
+                        {
+                            gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitR;
+                            gun.GetComponent<SpriteRenderer>().flipX = false;
+                            Renderer.flipX = false;
+                        }
+                        else
+                        {
+                            gun.GetComponent<Weapon>().bulletExit = gun.GetComponent<Weapon>().bulletExitL;
+                            gun.GetComponent<SpriteRenderer>().flipX = true;
+                            Renderer.flipX = true;
+                        }
                     }
                 }
             }

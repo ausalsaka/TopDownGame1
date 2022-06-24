@@ -9,6 +9,7 @@ TagManager:
   - enemy
   - spawner
   - PauseMenu
+  - MovementJoystick
   layers:
   - Default
   - TransparentFX

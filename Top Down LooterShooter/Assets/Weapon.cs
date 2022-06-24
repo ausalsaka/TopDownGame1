@@ -77,7 +77,7 @@ public class Weapon : MonoBehaviour
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification = "<Pending>")]
     void fireInputDetection()
     {
-        if (aimstick.Direction.magnitude > .5 && isEquipped && Player.GetComponent<Player>().dead == false) 
+        if (aimstick.isActiveAndEnabled && aimstick.Direction.magnitude > .5 && isEquipped && Player.GetComponent<Player>().dead == false) 
         {
             if (bulletCount != 0 && !isShooting)
             {
@@ -92,14 +92,13 @@ public class Weapon : MonoBehaviour
             }
 
         }
-        else if (Input.touchCount>0 && isEquipped && Player.GetComponent<Player>().dead == false && ShootButton.pushingShoot)
+        else if (!aimstick.isActiveAndEnabled && Input.touchCount>0 && isEquipped && Player.GetComponent<Player>().dead == false )
         {
             int i = 0;
             while ( i < Input.touchCount )
             {
             Touch t = Input.GetTouch(i);
-                if (t.phase == TouchPhase.Began && bulletCount != 0 
-                    && !isShooting ) 
+                if ( bulletCount != 0 && !isShooting && !EventSystem.current.currentSelectedGameObject != joystick) 
                 {
                     InvokeRepeating("shooting", 0f, 60/fireRate);
                     isShooting = true;

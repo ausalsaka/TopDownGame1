@@ -103,6 +103,8 @@ public class Player : MonoBehaviour
             PrimaryIcon.sprite = item.GetComponent<Weapon>().unequipped;
             MagSize.text = item.GetComponent<Weapon>().maxMagSize.ToString();
             AmmoCount.text = item.GetComponent<Weapon>().bulletCount.ToString();
+
+            gameObject.GetComponent<Moobment>().JoystickControlsDirection();
         }
     }
 
