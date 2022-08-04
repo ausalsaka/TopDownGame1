@@ -9,8 +9,8 @@ public class Weapon : MonoBehaviour
 {
     [HideInInspector]public GameObject Player;
     [HideInInspector]public bool isEquipped = false;
-    [SerializeField]private Joystick aimstick;
-    public Joystick joystick;
+    private Joystick aimstick;
+    //private Joystick joystick;
     public AudioSource Sounds;
     public AudioClip reloadClip;
     public AudioClip shootClip;
@@ -45,16 +45,19 @@ public class Weapon : MonoBehaviour
 
     private void Awake()
     {
+        Player = GameObject.Find("Player");
         flashR.SetActive(false);
         flashL.SetActive(false);
+        
     }
 
     private void Start()
     {
+        aimstick = Player.GetComponent<Moobment>().aimstick;
+        //joystick = Player.GetComponent<Moobment>().joystick;
         //GameObject.Find("Inventory").GetComponent<Button>().onClick.AddListener(blockTouch);
         reloadButton.GetComponent<Button>().onClick.AddListener(StartReloading);
         bulletCount = maxMagSize;
-        Player = GameObject.Find("Player");
     }
     
     void Update()

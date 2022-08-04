@@ -104,6 +104,7 @@ public class Player : MonoBehaviour
             MagSize.text = item.GetComponent<Weapon>().maxMagSize.ToString();
             AmmoCount.text = item.GetComponent<Weapon>().bulletCount.ToString();
         }
+
     }
 
 

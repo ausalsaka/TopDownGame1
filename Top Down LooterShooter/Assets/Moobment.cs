@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class Moobment : MonoBehaviour
@@ -11,6 +12,7 @@ public class Moobment : MonoBehaviour
     public float stepInterval;
     private float elapsedWalkTime;
     //Movement tools
+    public Toggle joystickSetting;
     public Joystick joystick;
     public Joystick aimstick;
     [HideInInspector] public GameObject gun;
@@ -34,24 +36,54 @@ public class Moobment : MonoBehaviour
     public float regenTime;
     private float elapsedRegenTime;
     public static bool isDashing;
+    [HideInInspector]public int joystickAim;
+    private bool startup;
 
-    public bool joystickAim = false;
 
-    public void JoystickAimToggle()
+    private void ActivateJoystickAim ()
     {
-        if (joystickAim)
+
+    }
+
+    public void Awake()
+    {
+        startup = true;
+        joystickAim = PlayerPrefs.GetInt("joystickAim");
+        joystickSetting.isOn = intToBool(joystickAim);
+        if (intToBool(joystickAim))
         {
-            joystickAim = false;
-            aimstick.gameObject.SetActive(false);
-            gameObject.GetComponent<Player>().shootArea.SetActive(true);
+            aimstick.gameObject.SetActive(true);
+            gameObject.GetComponent<Player>().shootArea.SetActive(false);
+            
         }
         else
         {
-            joystickAim = true;
+            aimstick.gameObject.SetActive(false);
+            gameObject.GetComponent<Player>().shootArea.SetActive(true);
+        }
+        startup = false;
+    }
+
+    public void JoystickAimToggle()
+    {
+        if (intToBool(joystickAim) && !startup)
+        {
+            joystickAim = 0;
+            PlayerPrefs.SetInt("joystickAim", 0);
+            aimstick.gameObject.SetActive(false);
+            gameObject.GetComponent<Player>().shootArea.SetActive(true);
+            joystickSetting.isOn = intToBool(joystickAim);
+        }
+        else if (!startup)
+        {
+            joystickAim = 1;
+            PlayerPrefs.SetInt("joystickAim", 1);
             aimstick.gameObject.SetActive(true);
             gameObject.GetComponent<Player>().shootArea.SetActive(false);
+            joystickSetting.isOn = intToBool(joystickAim);
         }
     }
+
 
 
 
@@ -356,6 +388,20 @@ public class Moobment : MonoBehaviour
     }
 
 
+    int boolToInt(bool val)
+    {
+        if (val)
+            return 1;
+        else
+            return 0;
+    }
 
+    bool intToBool(int val)
+    {
+        if (val != 0)
+            return true;
+        else
+            return false;
+    }
 
 }

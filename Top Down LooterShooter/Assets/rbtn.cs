@@ -11,12 +11,6 @@ public class rbtn : MonoBehaviour
     public GameObject adButton;
     public Text adsShown;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        gameObject.GetComponent<Button>().onClick.AddListener(RestartLevel);
-    }
-
     public void RestartLevel()
     {
         Time.timeScale = 1;

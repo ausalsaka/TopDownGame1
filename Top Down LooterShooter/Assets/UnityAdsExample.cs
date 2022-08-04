@@ -26,7 +26,7 @@ public class UnityAdsExample : MonoBehaviour
             rewardedId = "Rewarded_iOS";
 
         }
-        else if (Application.platform == RuntimePlatform.IPhonePlayer)
+        else if (Application.platform == RuntimePlatform.Android)
         {
             gameId = androidId;
             rewardedId = "Rewarded_Android";
@@ -35,8 +35,8 @@ public class UnityAdsExample : MonoBehaviour
         else
         {
             Debug.Log("could not initialize ads" + "Platform = " + Application.platform);
-            gameId = androidId;
-            rewardedId = "Rewarded_Android";
+            gameId = iOSId;
+            rewardedId = "Rewarded_iOS";
         }
     }
 
@@ -47,14 +47,16 @@ public class UnityAdsExample : MonoBehaviour
         
     }
 
-    [System.Obsolete]
+    
     public void ShowRewardedAd()
     {
         if (Advertisement.IsReady(rewardedId) && adsShown<1)
         {
             adsShown++;
             text.text = adsShown.ToString();
+#pragma warning disable CS0618 // Type or member is obsolete
             var options = new ShowOptions { resultCallback = HandleShowResult };
+#pragma warning restore CS0618 // Type or member is obsolete
             Advertisement.Show(rewardedId, options);
         }
     }
@@ -72,7 +74,7 @@ public class UnityAdsExample : MonoBehaviour
     void keepPlaying()
     {
         Time.timeScale = 1;
-        if(!player.GetComponent<Moobment>().joystickAim) shootArea.SetActive(true);
+        if(!intToBool(player.GetComponent<Moobment>().joystickAim)) shootArea.SetActive(true);
         deathMenu.SetActive(false);
         player.GetComponent<Player>().dead = false;
         player.GetComponent<Player>().health = 100;
@@ -108,5 +110,12 @@ public class UnityAdsExample : MonoBehaviour
                 Debug.LogError("The ad failed to be shown.");
                 break;
         }
+    }
+    bool intToBool(int val)
+    {
+        if (val != 0)
+            return true;
+        else
+            return false;
     }
 }
