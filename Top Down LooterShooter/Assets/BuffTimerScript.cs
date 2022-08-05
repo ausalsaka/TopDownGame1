@@ -26,6 +26,7 @@ public class BuffTimerScript : MonoBehaviour
             timer.fillAmount = timeLeft / maxTime;
         }else
         {
+            gameObject.GetComponentInParent<BuffTimerControllerScript>().timers -= 1;
             Destroy(gameObject);
         }
     }

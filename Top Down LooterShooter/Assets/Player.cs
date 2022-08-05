@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     //touch controls
     public GameObject shootArea;
 
-    [HideInInspector]public bool[] buffs = new bool[0]; //0 -> ammo ; 1 -> ?
+    [HideInInspector] public bool[] buffs = new bool[2]; //0 -> ammo ; 1 -> speed
     public GameObject timerController;
 
 

@@ -307,8 +307,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   isEquipped: 0
-  aimstick: {fileID: 0}
-  joystick: {fileID: 0}
   Sounds: {fileID: 1905738789}
   reloadClip: {fileID: 8300000, guid: 8a884af4b9865464796fbe004d5bcb9c, type: 3}
   shootClip: {fileID: 8300000, guid: 79cf242950654d1438c056e13719a48f, type: 3}

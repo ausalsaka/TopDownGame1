@@ -16,7 +16,7 @@ public class Moobment : MonoBehaviour
     public Joystick joystick;
     public Joystick aimstick;
     [HideInInspector] public GameObject gun;
-    public float moveSpeed = 20f;
+    public float moveSpeed = 5f;
     public SpriteRenderer Renderer;
     public Animator animator;
     public Rigidbody2D rb;
@@ -25,7 +25,7 @@ public class Moobment : MonoBehaviour
     private Vector2 moveDirection;
     [HideInInspector]
     public float maxStamina = 100f;
-    private float stamDrain = 20f;
+    //private float stamDrain = 20f;
     [HideInInspector]
     public float currentStamina;
     //Dashing tools
@@ -38,12 +38,7 @@ public class Moobment : MonoBehaviour
     public static bool isDashing;
     [HideInInspector]public int joystickAim;
     private bool startup;
-
-
-    private void ActivateJoystickAim ()
-    {
-
-    }
+    
 
     public void Awake()
     {
@@ -361,28 +356,28 @@ public class Moobment : MonoBehaviour
 
         moveDirection = new Vector2(moveX, moveY).normalized;
         //Check If Sprinting
-        if (moveDirection != Vector2.zero && Input.GetKey(KeyCode.LeftShift))
+        if (moveDirection != Vector2.zero && gameObject.GetComponent<Player>().buffs[1])
             {
             if (currentStamina > 0)
             {
-                currentStamina = currentStamina - (stamDrain * Time.deltaTime);
-                moveSpeed = 8f;
-                stepInterval = .3f;
+                //currentStamina = currentStamina - (stamDrain * Time.deltaTime);
+                moveSpeed = 12f;
+                stepInterval = .15f;
                 animator.SetBool("isRunning", true);
                 gunFaceMouse();
             }
             else
             {
-                moveSpeed = 5f;
-                stepInterval = .5f;
+                moveSpeed = 8f;
+                stepInterval = .3f;
                 animator.SetBool("isRunning", false);
                 gunFaceMouse();
             }
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift)) 
+        if (!gameObject.GetComponent<Player>().buffs[1]) 
         { 
-            moveSpeed = 5f;
-            stepInterval = .5f;
+            moveSpeed = 8f;
+            stepInterval = .3f;
             animator.SetBool("isRunning", false);
         }
     }
