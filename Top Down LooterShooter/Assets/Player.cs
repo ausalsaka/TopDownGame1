@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     public GameObject shootArea;
 
     [HideInInspector]public bool[] buffs = new bool[0]; //0 -> ammo ; 1 -> ?
-
+    public GameObject timerController;
 
 
     public void Awake()
@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
     {
         buffs[buff] = true;
         StartCoroutine(DisableBuff(buff, duration));
-
+        timerController.GetComponent<BuffTimerControllerScript>().StartBuffTimer(buff, duration);
     }
     IEnumerator DisableBuff(int buff, float duration)
     {

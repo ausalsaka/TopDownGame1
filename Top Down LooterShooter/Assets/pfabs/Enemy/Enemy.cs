@@ -14,7 +14,10 @@ public class Enemy : MonoBehaviour
     private bool canDamage = true;
 
 
-
+    private void Start()
+    {
+        //health = 
+    }
 
     public void TakeDamage (float damage)
     {
@@ -54,14 +57,6 @@ public class Enemy : MonoBehaviour
             if(Random.Range(1, 100) > (100- dropchance[i])) Instantiate(drops[i], rand, Quaternion.identity);
             i++;
         }
-
-
-        //if (Random.Range(1, 100) >60)
-        //{
-        //    Instantiate(drops[0], rand, Quaternion.identity);
-        //}
-        //else { Instantiate(drops[1], rand, Quaternion.identity); }
-        
         
         
         Instantiate(enemyDead, transform.position, transform.rotation);
