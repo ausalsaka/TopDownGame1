@@ -82,12 +82,12 @@ public class Weapon : MonoBehaviour
     {
         if (aimstick.Direction.magnitude > .5 && isEquipped && Player.GetComponent<Player>().dead == false) 
         {
-            if (bulletCount != 0 && !isShooting)
+            if ((bulletCount != 0) && !isShooting)
             {
                 InvokeRepeating("shooting", 0f, 60 / fireRate);
                 isShooting = true;
             }
-            else if (bulletCount == 0)
+            else if (bulletCount == 0 )
             {
                 CancelInvoke("shooting");
                 isShooting = false;
@@ -151,21 +151,22 @@ public class Weapon : MonoBehaviour
     {
 
         if (bulletCount != 0 && reloading != true && isEquipped)
-            {
-                Instantiate(bulletPrefab, bulletExit.transform.position, bulletExit.transform.rotation);
-                StartCoroutine(muzzleFlash());
+        {
+            Instantiate(bulletPrefab, bulletExit.transform.position, bulletExit.transform.rotation);
+            StartCoroutine(muzzleFlash());
+
                 
-                Sounds.PlayOneShot(shootClip);
-                CinemachineShake.Instance.ShakeCamera(shakeScale, .2f);
-                bulletCount--;
-                AmmoCount.text = bulletCount.ToString();
-            }
-            else if (bulletCount == 0 && isEquipped)
-            {
-                CancelInvoke("shooting");
-                isShooting = false;
-                StartCoroutine(reload());
-            }
+            Sounds.PlayOneShot(shootClip);
+            CinemachineShake.Instance.ShakeCamera(shakeScale, .2f);
+            if(!Player.GetComponent<Player>().buffs[0]) bulletCount--;
+            AmmoCount.text = bulletCount.ToString();
+        }
+        else if (bulletCount == 0 && isEquipped)
+        {
+            CancelInvoke("shooting");
+            isShooting = false;
+            StartCoroutine(reload());
+        }
         
     }
 

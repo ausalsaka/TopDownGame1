@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public float health = 100;
     public GameObject enemyDead;
     public GameObject[] drops;
+    public float[] dropchance;
     public float dropRadius = 0.1f;
     private bool canDamage = true;
 
@@ -45,11 +46,24 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         Vector2 rand = new Vector2(Random.Range(transform.position.x - dropRadius, transform.position.x + dropRadius), Random.Range(transform.position.y - dropRadius, transform.position.y + dropRadius));
-        if (Random.Range(1, 100) >60)
+
+        int i = 0;
+        foreach(int chance in dropchance)
         {
-            Instantiate(drops[0], rand, Quaternion.identity);
+
+            if(Random.Range(1, 100) > (100- dropchance[i])) Instantiate(drops[i], rand, Quaternion.identity);
+            i++;
         }
-        else { Instantiate(drops[1], rand, Quaternion.identity); }
+
+
+        //if (Random.Range(1, 100) >60)
+        //{
+        //    Instantiate(drops[0], rand, Quaternion.identity);
+        //}
+        //else { Instantiate(drops[1], rand, Quaternion.identity); }
+        
+        
+        
         Instantiate(enemyDead, transform.position, transform.rotation);
         Destroy(gameObject);
         spawner.currentEnemies -= 1;

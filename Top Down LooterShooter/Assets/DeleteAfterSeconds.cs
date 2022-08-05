@@ -8,9 +8,8 @@ public class DeleteAfterSeconds : MonoBehaviour
     private SpriteRenderer rendara;
     public void Start()
     {
-        StartCoroutine(Delete(seconds));
         if(gameObject.GetComponent<SpriteRenderer>() != null) rendara = gameObject.GetComponent<SpriteRenderer>();
-        
+        StartCoroutine(Delete(seconds));
     }
 
     IEnumerator Delete(float time)

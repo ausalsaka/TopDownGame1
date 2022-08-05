@@ -140,6 +140,11 @@ MonoBehaviour:
   drops:
   - {fileID: 1422087969556209014, guid: 97d979d3cc27ccc4e987afbb7622e1a7, type: 3}
   - {fileID: 1422087969556209014, guid: 47df6143ccccc3143b57ab9c695973d3, type: 3}
+  - {fileID: 3972929947917982659, guid: 1e68a7678dc171c4785e0c522113ed74, type: 3}
+  dropchance:
+  - 10
+  - 30
+  - 2
   dropRadius: 1
 --- !u!114 &432371070553907912
 MonoBehaviour:

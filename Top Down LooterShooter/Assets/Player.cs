@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     //touch controls
     public GameObject shootArea;
 
+    [HideInInspector]public bool[] buffs = new bool[0]; //0 -> ammo ; 1 -> ?
+
 
 
     public void Awake()
@@ -31,6 +33,19 @@ public class Player : MonoBehaviour
         Health.value = health;
         SecondaryIcon.GetComponent<Button>().onClick.AddListener(SecondaryClicked);
     }
+
+    public void PickUpBuff(int buff, float duration)
+    {
+        buffs[buff] = true;
+        StartCoroutine(DisableBuff(buff, duration));
+
+    }
+    IEnumerator DisableBuff(int buff, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        buffs[buff] = false;
+    }
+
     public void pickUpXp(float value)
     {
         Xp += value;

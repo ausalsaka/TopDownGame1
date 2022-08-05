@@ -57115,6 +57115,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 2929252283573168865, guid: 128bac1500511ff48b0ad85cdbb38af7,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283573168865, guid: 128bac1500511ff48b0ad85cdbb38af7,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.25
+      objectReference: {fileID: 0}
     - target: {fileID: 2929252283985972700, guid: 128bac1500511ff48b0ad85cdbb38af7,
         type: 3}
       propertyPath: m_Name
@@ -57178,12 +57188,12 @@ PrefabInstance:
     - target: {fileID: 2929252284162716004, guid: 128bac1500511ff48b0ad85cdbb38af7,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 2929252284162716004, guid: 128bac1500511ff48b0ad85cdbb38af7,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 2929252284162716004, guid: 128bac1500511ff48b0ad85cdbb38af7,
         type: 3}
@@ -72787,6 +72797,11 @@ PrefabInstance:
       propertyPath: SecondaryIcon
       value: 
       objectReference: {fileID: 434554623}
+    - target: {fileID: 2376494301209288095, guid: 677597afb1e50554f91195d557eec86a,
+        type: 3}
+      propertyPath: buffs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8054800943780046208, guid: 677597afb1e50554f91195d557eec86a,
         type: 3}
       propertyPath: m_Name

@@ -1,0 +1,549 @@
+Using pre-set license
+Built from '2020.2/release' branch; Version is '2020.2.1f1 (270dd8c3da1c) revision 2559448'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10  (10.0.0) 64bit' Language: 'en' Physical Memory: 32702 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+D:\Program Files\Unity\2020.2.1f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+F:/Unity/looterShooter/TopDownLooterShooter GitHub/TDLS-Game/Top Down LooterShooter
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+55624
+Successfully changed project path to: F:/Unity/looterShooter/TopDownLooterShooter GitHub/TDLS-Game/Top Down LooterShooter
+F:/Unity/looterShooter/TopDownLooterShooter GitHub/TDLS-Game/Top Down LooterShooter
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 78.12 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.2.1f1 (270dd8c3da1c)
+[Subsystems] Discovering subsystems at path D:/Program Files/Unity/2020.2.1f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path F:/Unity/looterShooter/TopDownLooterShooter GitHub/TDLS-Game/Top Down LooterShooter/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1080 (ID=0x1b80)
+    Vendor:   
+    VRAM:     8079 MB
+    Driver:   31.0.15.1640
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Initialize mono
+Mono path[0] = 'D:/Program Files/Unity/2020.2.1f1/Editor/Data/Managed'
+Mono path[1] = 'D:/Program Files/Unity/2020.2.1f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'D:/Program Files/Unity/2020.2.1f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56976
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/Program Files/Unity/2020.2.1f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001027 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 71.87 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.211 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.002424 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 63.30 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Can't find custom attr constructor image: F:\Unity\looterShooter\TopDownLooterShooter GitHub\TDLS-Game\Top Down LooterShooter\Library\PackageCache\com.unity.ads@3.4.1\Editor\UnityEditor.Advertisements.dll mtoken: 0x0a00000f due to:  assembly:D:\Program Files\Unity\2020.2.1f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll type:UnityAPICompatibilityVersionAttribute member:void {0}(string,string[]) signature:.ctor
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.973 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.14 seconds
+Refreshing native plugins compatible for Editor in 0.69 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3503 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 165.9 MB.
+System memory in use after: 166.1 MB.
+
+Unloading 39 unused Assets to reduce memory usage. Loaded Objects now: 3956.
+Total: 2.404400 ms (FindLiveObjects: 0.348500 ms CreateObjectMapping: 0.230000 ms MarkObjects: 1.798600 ms  DeleteObjects: 0.026100 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Joystick Pack/Examples/Ground.mat
+  artifactKey: Guid(c569c280f0eb52a49a7b2a6b8b0cbcf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joystick Pack/Examples/Ground.mat using Guid(c569c280f0eb52a49a7b2a6b8b0cbcf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20649e726363825b5a04917ab35be523') in 1.684326 seconds
+  Import took 1.691085 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.131087 seconds.
+  path: Assets/Joystick Pack/Examples/Player.mat
+  artifactKey: Guid(59e4faf24927edf4a82f463ad16f1c37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joystick Pack/Examples/Player.mat using Guid(59e4faf24927edf4a82f463ad16f1c37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f94dea1ce80fbe992f36c45229774bf8') in 0.045009 seconds
+  Import took 0.050787 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 100.792903 seconds.
+  path: Assets/pfabs/Capper.prefab
+  artifactKey: Guid(49fc143b5f1c9fb46a6aaefd9106200e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/pfabs/Capper.prefab using Guid(49fc143b5f1c9fb46a6aaefd9106200e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '61e308cfc999717e26dec02520d6497e') in 0.057239 seconds
+  Import took 0.063703 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000278 seconds.
+  path: Assets/pfabs/Player.prefab
+  artifactKey: Guid(20d0dc7d8a1632944b8ac696b84e5e5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/pfabs/Player.prefab using Guid(20d0dc7d8a1632944b8ac696b84e5e5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5b3cc58817710e721bf7bdaecb2b39e') in 0.011934 seconds
+  Import took 0.017787 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000231 seconds.
+  path: Assets/pfabs/Papper.prefab
+  artifactKey: Guid(809c95c929331354f82d7a10f965090c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/pfabs/Papper.prefab using Guid(809c95c929331354f82d7a10f965090c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53edd477f3b1ebb65adeb1704db91f1d') in 0.011508 seconds
+  Import took 0.017667 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000217 seconds.
+  path: Assets/pfabs/CM vcam1.prefab
+  artifactKey: Guid(128bac1500511ff48b0ad85cdbb38af7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/pfabs/CM vcam1.prefab using Guid(128bac1500511ff48b0ad85cdbb38af7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9334aec982e9425e481f9d54b7706271') in 0.036885 seconds
+  Import took 0.042929 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.925145 seconds.
+  path: Assets/pfabs/AmmoBuff.prefab
+  artifactKey: Guid(1e68a7678dc171c4785e0c522113ed74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/pfabs/AmmoBuff.prefab using Guid(1e68a7678dc171c4785e0c522113ed74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53aab044869fc7bdebb7f13250d3a0b5') in 0.044270 seconds
+  Import took 0.054044 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.004436 seconds.
+  path: Assets/pfabs/AmmoBuff.prefab
+  artifactKey: Guid(1e68a7678dc171c4785e0c522113ed74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/pfabs/AmmoBuff.prefab using Guid(1e68a7678dc171c4785e0c522113ed74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53aab044869fc7bdebb7f13250d3a0b5') in 0.014051 seconds
+  Import took 0.019231 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 20.091049 seconds.
+  path: Assets/pfabs/Anemonie.prefab
+  artifactKey: Guid(e6756c116731871429c6f12fb70e3e4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/pfabs/Anemonie.prefab using Guid(e6756c116731871429c6f12fb70e3e4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f88fa684ac5b75f2a85194f930e10b3') in 0.023495 seconds
+  Import took 0.029733 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.995878 seconds.
+  path: Assets/pfabs/Anemonie.prefab
+  artifactKey: Guid(e6756c116731871429c6f12fb70e3e4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/pfabs/Anemonie.prefab using Guid(e6756c116731871429c6f12fb70e3e4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab77b44b498a5409b858a5c2ed35155e') in 0.020550 seconds
+  Import took 0.026060 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002506 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.72 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Can't find custom attr constructor image: F:\Unity\looterShooter\TopDownLooterShooter GitHub\TDLS-Game\Top Down LooterShooter\Library\PackageCache\com.unity.ads@3.4.1\Editor\UnityEditor.Advertisements.dll mtoken: 0x0a00000f due to:  assembly:D:\Program Files\Unity\2020.2.1f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll type:UnityAPICompatibilityVersionAttribute member:void {0}(string,string[]) signature:.ctor
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.904 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.84 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3359 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 166.1 MB.
+System memory in use after: 166.4 MB.
+
+Unloading 34 unused Assets to reduce memory usage. Loaded Objects now: 4039.
+Total: 2.809600 ms (FindLiveObjects: 0.543700 ms CreateObjectMapping: 0.251000 ms MarkObjects: 1.926900 ms  DeleteObjects: 0.087100 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002413 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.15 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Can't find custom attr constructor image: F:\Unity\looterShooter\TopDownLooterShooter GitHub\TDLS-Game\Top Down LooterShooter\Library\PackageCache\com.unity.ads@3.4.1\Editor\UnityEditor.Advertisements.dll mtoken: 0x0a00000f due to:  assembly:D:\Program Files\Unity\2020.2.1f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll type:UnityAPICompatibilityVersionAttribute member:void {0}(string,string[]) signature:.ctor
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.884 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.81 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3360 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 167.2 MB.
+System memory in use after: 167.4 MB.
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 4041.
+Total: 2.210000 ms (FindLiveObjects: 0.307500 ms CreateObjectMapping: 0.161500 ms MarkObjects: 1.723300 ms  DeleteObjects: 0.016800 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 701.864226 seconds.
+  path: Assets/Enemy/Anemonie.prefab
+  artifactKey: Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Anemonie.prefab using Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf57fdd6d3c288911f377a17729c795e') in 0.142500 seconds
+  Import took 0.148529 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.473869 seconds.
+  path: Assets/Enemy/Anemonie.prefab
+  artifactKey: Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Anemonie.prefab using Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1e74f72662696de5c16241a68b00982') in 0.017195 seconds
+  Import took 0.024154 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001519 seconds.
+  path: Assets/Enemy/Anemonie.prefab
+  artifactKey: Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Anemonie.prefab using Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1e74f72662696de5c16241a68b00982') in 0.021526 seconds
+  Import took 0.026743 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 23.958418 seconds.
+  path: Assets/Enemy/Anemonie.prefab
+  artifactKey: Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Anemonie.prefab using Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '349e04e1f6316f0c69499930df82cbb8') in 0.021222 seconds
+  Import took 0.028088 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000879 seconds.
+  path: Assets/Enemy/Anemonie.prefab
+  artifactKey: Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Anemonie.prefab using Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '349e04e1f6316f0c69499930df82cbb8') in 0.015562 seconds
+  Import took 0.021305 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.339560 seconds.
+  path: Assets/Enemy/Anemonie.prefab
+  artifactKey: Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Anemonie.prefab using Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9fcf29d9fe5f3cbbe4af7191f8b941c4') in 0.015974 seconds
+  Import took 0.021855 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.005835 seconds.
+  path: Assets/Enemy/Anemonie.prefab
+  artifactKey: Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Anemonie.prefab using Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9fcf29d9fe5f3cbbe4af7191f8b941c4') in 0.016453 seconds
+  Import took 0.022280 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002298 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.71 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Can't find custom attr constructor image: F:\Unity\looterShooter\TopDownLooterShooter GitHub\TDLS-Game\Top Down LooterShooter\Library\PackageCache\com.unity.ads@3.4.1\Editor\UnityEditor.Advertisements.dll mtoken: 0x0a00000f due to:  assembly:D:\Program Files\Unity\2020.2.1f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll type:UnityAPICompatibilityVersionAttribute member:void {0}(string,string[]) signature:.ctor
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.898 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.87 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3360 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 167.4 MB.
+System memory in use after: 167.6 MB.
+
+Unloading 31 unused Assets to reduce memory usage. Loaded Objects now: 4079.
+Total: 2.659500 ms (FindLiveObjects: 0.323100 ms CreateObjectMapping: 0.165000 ms MarkObjects: 2.129100 ms  DeleteObjects: 0.041200 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.048042 seconds.
+  path: Assets/Enemy/Anemonie.prefab
+  artifactKey: Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Anemonie.prefab using Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ade01d11831dcaa8e7498437dffdbd7') in 0.144801 seconds
+  Import took 0.151172 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 125.235360 seconds.
+  path: Assets/Enemy/Anemonie.prefab
+  artifactKey: Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Anemonie.prefab using Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1153150fe76cb031cf4186388ddb888') in 0.018464 seconds
+  Import took 0.027629 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.132741 seconds.
+  path: Assets/pfabs/Anemonie.prefab
+  artifactKey: Guid(e6756c116731871429c6f12fb70e3e4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/pfabs/Anemonie.prefab using Guid(e6756c116731871429c6f12fb70e3e4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf1f086fc6cb6fe143df5df84f328933') in 0.017940 seconds
+  Import took 0.023593 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002268 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.73 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Can't find custom attr constructor image: F:\Unity\looterShooter\TopDownLooterShooter GitHub\TDLS-Game\Top Down LooterShooter\Library\PackageCache\com.unity.ads@3.4.1\Editor\UnityEditor.Advertisements.dll mtoken: 0x0a00000f due to:  assembly:D:\Program Files\Unity\2020.2.1f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll type:UnityAPICompatibilityVersionAttribute member:void {0}(string,string[]) signature:.ctor
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.910 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.78 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3360 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 167.5 MB.
+System memory in use after: 167.7 MB.
+
+Unloading 31 unused Assets to reduce memory usage. Loaded Objects now: 4117.
+Total: 2.838300 ms (FindLiveObjects: 0.366300 ms CreateObjectMapping: 0.217900 ms MarkObjects: 2.203800 ms  DeleteObjects: 0.048900 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 90.466901 seconds.
+  path: Assets/pfabs/Enemy/Anemonie.prefab
+  artifactKey: Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/pfabs/Enemy/Anemonie.prefab using Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b042555f02768c328003e4a844de03d') in 0.147942 seconds
+  Import took 0.154778 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.434925 seconds.
+  path: Assets/pfabs/Enemy/Anemonie.prefab
+  artifactKey: Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/pfabs/Enemy/Anemonie.prefab using Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35d78676e58560c9b22361528d063bf3') in 0.017063 seconds
+  Import took 0.023072 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.033578 seconds.
+  path: Assets/pfabs/Enemy/Anemonie.prefab
+  artifactKey: Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/pfabs/Enemy/Anemonie.prefab using Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c2a283c51cca6200290267bd7cee841') in 0.018253 seconds
+  Import took 0.026295 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002699 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.81 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Can't find custom attr constructor image: F:\Unity\looterShooter\TopDownLooterShooter GitHub\TDLS-Game\Top Down LooterShooter\Library\PackageCache\com.unity.ads@3.4.1\Editor\UnityEditor.Advertisements.dll mtoken: 0x0a00000f due to:  assembly:D:\Program Files\Unity\2020.2.1f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll type:UnityAPICompatibilityVersionAttribute member:void {0}(string,string[]) signature:.ctor
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.062 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.86 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3360 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 167.6 MB.
+System memory in use after: 167.9 MB.
+
+Unloading 31 unused Assets to reduce memory usage. Loaded Objects now: 4155.
+Total: 2.861300 ms (FindLiveObjects: 0.412600 ms CreateObjectMapping: 0.205900 ms MarkObjects: 2.195800 ms  DeleteObjects: 0.046000 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002378 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.80 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Can't find custom attr constructor image: F:\Unity\looterShooter\TopDownLooterShooter GitHub\TDLS-Game\Top Down LooterShooter\Library\PackageCache\com.unity.ads@3.4.1\Editor\UnityEditor.Advertisements.dll mtoken: 0x0a00000f due to:  assembly:D:\Program Files\Unity\2020.2.1f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll type:UnityAPICompatibilityVersionAttribute member:void {0}(string,string[]) signature:.ctor
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.904 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.76 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3360 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 167.6 MB.
+System memory in use after: 167.9 MB.
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 4157.
+Total: 2.879700 ms (FindLiveObjects: 0.590000 ms CreateObjectMapping: 0.250000 ms MarkObjects: 2.015200 ms  DeleteObjects: 0.023500 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002521 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.75 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Can't find custom attr constructor image: F:\Unity\looterShooter\TopDownLooterShooter GitHub\TDLS-Game\Top Down LooterShooter\Library\PackageCache\com.unity.ads@3.4.1\Editor\UnityEditor.Advertisements.dll mtoken: 0x0a00000f due to:  assembly:D:\Program Files\Unity\2020.2.1f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll type:UnityAPICompatibilityVersionAttribute member:void {0}(string,string[]) signature:.ctor
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.027 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.82 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3360 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 167.6 MB.
+System memory in use after: 167.9 MB.
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 4159.
+Total: 3.215300 ms (FindLiveObjects: 0.358000 ms CreateObjectMapping: 0.165300 ms MarkObjects: 2.624900 ms  DeleteObjects: 0.064700 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 427.434250 seconds.
+  path: Assets/pfabs/Enemy/Anemonie.prefab
+  artifactKey: Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/pfabs/Enemy/Anemonie.prefab using Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dab53083ca9597dd02da4f490e53074a') in 0.167852 seconds
+  Import took 0.174459 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 101.868259 seconds.
+  path: Assets/pfabs/Enemy/Anemonie.prefab
+  artifactKey: Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/pfabs/Enemy/Anemonie.prefab using Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75afed6f1ec261d0b4e24e20c07cbb78') in 0.017478 seconds
+  Import took 0.024510 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.006368 seconds.
+  path: Assets/pfabs/Enemy/Anemonie.prefab
+  artifactKey: Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/pfabs/Enemy/Anemonie.prefab using Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75afed6f1ec261d0b4e24e20c07cbb78') in 0.016902 seconds
+  Import took 0.022285 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.738384 seconds.
+  path: Assets/pfabs/Enemy/Anemonie.prefab
+  artifactKey: Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/pfabs/Enemy/Anemonie.prefab using Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38587e41cd1c25e5579b1e412c2603b3') in 0.017213 seconds
+  Import took 0.024537 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.011545 seconds.
+  path: Assets/pfabs/Enemy/Anemonie.prefab
+  artifactKey: Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/pfabs/Enemy/Anemonie.prefab using Guid(0fa8801b66c5cad40945781d262c81c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38587e41cd1c25e5579b1e412c2603b3') in 0.019899 seconds
+  Import took 0.026227 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 95.408441 seconds.
+  path: Assets/pfabs/AmmoBuff.prefab
+  artifactKey: Guid(1e68a7678dc171c4785e0c522113ed74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/pfabs/AmmoBuff.prefab using Guid(1e68a7678dc171c4785e0c522113ed74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae4937a811969463137728bbb6af1ff2') in 0.012446 seconds
+  Import took 0.018594 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.697738 seconds.
+  path: Assets/pfabs/AmmoBuff.prefab
+  artifactKey: Guid(1e68a7678dc171c4785e0c522113ed74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/pfabs/AmmoBuff.prefab using Guid(1e68a7678dc171c4785e0c522113ed74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66ff84185a6a83362946938ccdc796b2') in 0.010098 seconds
+  Import took 0.015813 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.816725 seconds.
+  path: Assets/pfabs/AmmoBuff.prefab
+  artifactKey: Guid(1e68a7678dc171c4785e0c522113ed74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/pfabs/AmmoBuff.prefab using Guid(1e68a7678dc171c4785e0c522113ed74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cde6ab61b438834f2ce1a6694526f666') in 0.010253 seconds
+  Import took 0.017270 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 485.056061 seconds.
+  path: Assets/ShootButton.cs
+  artifactKey: Guid(f3fe1c32c3d46e147b6bcbfcb273260c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ShootButton.cs using Guid(f3fe1c32c3d46e147b6bcbfcb273260c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1cb2c24c057fb6d3fba9dda02691c2d9') in 0.010369 seconds
+  Import took 0.016599 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001331 seconds.
+  path: Assets/ShootButton.cs
+  artifactKey: Guid(f3fe1c32c3d46e147b6bcbfcb273260c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ShootButton.cs using Guid(f3fe1c32c3d46e147b6bcbfcb273260c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1cb2c24c057fb6d3fba9dda02691c2d9') in 0.001927 seconds
+  Import took 0.007193 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002397 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.71 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Can't find custom attr constructor image: F:\Unity\looterShooter\TopDownLooterShooter GitHub\TDLS-Game\Top Down LooterShooter\Library\PackageCache\com.unity.ads@3.4.1\Editor\UnityEditor.Advertisements.dll mtoken: 0x0a00000f due to:  assembly:D:\Program Files\Unity\2020.2.1f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll type:UnityAPICompatibilityVersionAttribute member:void {0}(string,string[]) signature:.ctor
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.918 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.71 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3361 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 167.8 MB.
+System memory in use after: 168.0 MB.
+
+Unloading 31 unused Assets to reduce memory usage. Loaded Objects now: 4198.
+Total: 2.620300 ms (FindLiveObjects: 0.292200 ms CreateObjectMapping: 0.138600 ms MarkObjects: 2.116500 ms  DeleteObjects: 0.072100 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 429.912637 seconds.
+  path: Assets/pfabs/AmmoBuff.prefab
+  artifactKey: Guid(1e68a7678dc171c4785e0c522113ed74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/pfabs/AmmoBuff.prefab using Guid(1e68a7678dc171c4785e0c522113ed74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '351a7141707f1402aa08860d523ff906') in 0.168697 seconds
+  Import took 0.175581 seconds .
+
