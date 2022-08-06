@@ -20,6 +20,11 @@ public class BuffTimerScript : MonoBehaviour
 
     void Update()
     {
+
+        if (gameObject.GetComponentInParent<BuffTimerControllerScript>() != null && gameObject.GetComponentInParent<BuffTimerControllerScript>().timers == 1)
+        {
+            gameObject.transform.localPosition = Vector2.zero;
+        }
         if (timeLeft > 0)
         {
             timeLeft -= Time.deltaTime;
@@ -29,5 +34,8 @@ public class BuffTimerScript : MonoBehaviour
             gameObject.GetComponentInParent<BuffTimerControllerScript>().timers -= 1;
             Destroy(gameObject);
         }
+
+
     }
+
 }
