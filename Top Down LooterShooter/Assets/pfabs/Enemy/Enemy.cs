@@ -48,13 +48,13 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        Vector2 rand = new Vector2(Random.Range(transform.position.x - dropRadius, transform.position.x + dropRadius), Random.Range(transform.position.y - dropRadius, transform.position.y + dropRadius));
+        
 
         int i = 0;
         foreach(int chance in dropchance)
         {
-
-            if(Random.Range(1, 100) > (100- dropchance[i])) Instantiate(drops[i], rand, Quaternion.identity);
+            Vector2 rand = new Vector2(Random.Range(transform.position.x - dropRadius, transform.position.x + dropRadius), Random.Range(transform.position.y - dropRadius, transform.position.y + dropRadius));
+            if (Random.Range(1, 100) > (100- dropchance[i])) Instantiate(drops[i], rand, Quaternion.identity);
             i++;
         }
         

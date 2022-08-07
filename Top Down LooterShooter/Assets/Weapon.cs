@@ -101,13 +101,12 @@ public class Weapon : MonoBehaviour
             while ( i < Input.touchCount )
             {
             Touch t = Input.GetTouch(i);
-                if (t.phase == TouchPhase.Began && bulletCount != 0 
-                    && !isShooting ) 
+                if (!isShooting ) 
                 {
                     InvokeRepeating("shooting", 0f, 60/fireRate);
                     isShooting = true;
                 }
-                else if (bulletCount == 0)
+                else if (bulletCount == 0 && !reloading)
                 {
                     CancelInvoke("shooting");
                     isShooting = false;
@@ -150,7 +149,7 @@ public class Weapon : MonoBehaviour
     void shooting()
     {
 
-        if (bulletCount != 0 && reloading != true && isEquipped)
+        if (bulletCount != 0 && !reloading && isEquipped)
         {
             Instantiate(bulletPrefab, bulletExit.transform.position, bulletExit.transform.rotation);
             StartCoroutine(muzzleFlash());
@@ -161,7 +160,7 @@ public class Weapon : MonoBehaviour
             if(!Player.GetComponent<Player>().buffs[0]) bulletCount--;
             AmmoCount.text = bulletCount.ToString();
         }
-        else if (bulletCount == 0 && isEquipped)
+        else if (isEquipped)
         {
             CancelInvoke("shooting");
             isShooting = false;
